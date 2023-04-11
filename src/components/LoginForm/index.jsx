@@ -1,6 +1,7 @@
 import React, { Fragment,useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
+import { setToken } from '@/redux/global/action';
 import md5 from "js-md5";
 import { Button, Checkbox, Form, Input } from 'antd';
 

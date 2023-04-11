@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux'
+import { store, persistor } from "@/redux/index";
+// import login from '@/views/login'
 import { Provider } from 'react-redux'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

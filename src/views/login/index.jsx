@@ -1,2 +1,7 @@
-const a = 0
-export default a
+import React from 'react'
+
+export default function index() {
+  return (
+    <div>index</div>
+  )
+}

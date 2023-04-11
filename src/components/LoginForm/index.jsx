@@ -5,7 +5,7 @@ import { setToken } from '@/redux/global/action';
 import md5 from "js-md5";
 import { Button, Checkbox, Form, Input } from 'antd';
 
-export default function LoginForm(props) {
+const LoginForm = (props) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -99,3 +99,6 @@ export default function LoginForm(props) {
     </Fragment>
  )
 }
+
+const mapDispatchToProps = { setToken };
+export default connect(null, mapDispatchToProps)(LoginForm);

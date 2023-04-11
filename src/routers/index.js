@@ -1,16 +1,16 @@
 import { Navigate, useRoutes } from "react-router-dom";
-import Login from "@/views/login/index";
+import Login from "@/views/login";
 
 // * 导入所有router
-const metaRouters = import.meta.globEager("./modules/*.tsx");
+// const metaRouters = import.meta.globEager("./modules/*.tsx");
 
 // * 处理路由
-export const routerArray = [];
-Object.keys(metaRouters).forEach(item => {
-	Object.keys(metaRouters[item]).forEach((key) => {
-		routerArray.push(...metaRouters[item][key]);
-	});
-});
+// export const routerArray = [];
+// Object.keys(metaRouters).forEach(item => {
+// 	Object.keys(metaRouters[item]).forEach((key) => {
+// 		routerArray.push(...metaRouters[item][key]);
+// 	});
+// });
 
 export const rootRouter = [
 	{
@@ -26,7 +26,7 @@ export const rootRouter = [
 			key: "login"
 		}
 	},
-	...routerArray,
+	// ...routerArray,
 	{
 		path: "*",
 		element: <Navigate to="/404" />

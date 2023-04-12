@@ -1,17 +1,18 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
+import {LayoutIndex} from "@/routers/constant.jsx";
+import Home from "@/views/Home/index.jsx";
 
 // * 导入所有router
-// const metaRouters = import.meta.globEager("./modules/*.tsx");
-
+const metaRouters = import.meta.globEager("./modules/*.jsx");
 // * 处理路由
-// export const routerArray = [];
-// Object.keys(metaRouters).forEach(item => {
-// 	Object.keys(metaRouters[item]).forEach((key) => {
-// 		routerArray.push(...metaRouters[item][key]);
-// 	});
-// });
-
+export const routerArray = [];
+Object.keys(metaRouters).forEach(item => {
+	Object.keys(metaRouters[item]).forEach((key) => {
+		routerArray.push(...metaRouters[item][key]);
+	});
+});
+console.log(routerArray)
 export const rootRouter = [
 	{
 		path: "/",
@@ -26,10 +27,19 @@ export const rootRouter = [
 			key: "login"
 		}
 	},
-	// ...routerArray,
+	{
+		path: "/ctrip",
+		element: <Login />,
+		meta: {
+			requiresAuth: false,
+			title: "主页",
+			key: "login"
+		}
+	},
+	...routerArray,
 	{
 		path: "*",
-		element: <Navigate to="/404" />
+		element: <Navigate to="/login" />
 	}
 ];
 

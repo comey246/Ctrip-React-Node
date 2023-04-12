@@ -4,9 +4,9 @@ import {LayoutIndex} from "@/routers/constant";
 
 const homeRouter = [
 	{
-		element: <LayoutIndex />,
-		children: [
-			{
+		// element: <LayoutIndex />,
+		// children: [
+		// 	{
 				path: "/user/index",
 				element: <User />,
 				meta: {
@@ -14,8 +14,8 @@ const homeRouter = [
 					title: "首页",
 					key: "user"
 				}
-			}
-		]
+	// 		}
+	// 	]
 	}
 ];
 

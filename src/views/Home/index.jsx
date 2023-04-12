@@ -4,10 +4,11 @@ import React, {Fragment} from "react";
 import {Button} from "antd";
 const Home = () => {
     const navigate = useNavigate()
-    const goHome = () => navigate('/user/index')
+    const goHome = () => navigate('/home/user')
+    const goHome1 = () => navigate('/user/index')
     return (
         <Fragment><div style={{border:"5px solid black"}}><h2>home</h2></div>
-            <Button onClick={goHome}>gohome</Button>
+            <Button onClick={goHome}>gohome</Button><Button onClick={goHome1}>gohome1</Button>
         </Fragment>
     );
 };

@@ -5,7 +5,8 @@ import { Outlet } from "react-router-dom";
       <Fragment>
           <div style={{border:"10px solid red"}}>
           <h2>laytouts/index</h2>
-      <Outlet></Outlet></div>
+              <div style={{height:"500px"}}>
+      <Outlet></Outlet></div></div>
       </Fragment>
   )
 }

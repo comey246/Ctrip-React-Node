@@ -3,11 +3,11 @@ import {LayoutIndex} from "@/routers/constant";
 // 首页模块
 
 const homeRouter = [
-	{
-		element: <LayoutIndex />,
-		children: [
+	// {
+	// 	element: <LayoutIndex />,
+	// 	children: [
 			{
-				path: "/home/index",
+				path: "/home/home",
 				element: <Home />,
 				meta: {
 					requiresAuth: true,
@@ -15,8 +15,8 @@ const homeRouter = [
 					key: "home"
 				}
 			}
-		]
-	}
+	// 	]
+	// }
 ];
 
 export default homeRouter;

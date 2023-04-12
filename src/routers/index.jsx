@@ -2,6 +2,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
 import {LayoutIndex} from "@/routers/constant.jsx";
 import Home from "@/views/Home/index.jsx";
+import User from "@/views/user/index";
 
 // * 导入所有router
 const metaRouters = import.meta.globEager("./modules/*.jsx");
@@ -28,15 +29,35 @@ export const rootRouter = [
 		}
 	},
 	{
-		path: "/ctrip",
-		element: <Login />,
+		element: <LayoutIndex />,
 		meta: {
 			requiresAuth: false,
 			title: "主页",
 			key: "login"
-		}
+		},
+		children: [
+			{
+				path: "/home/index",
+				element: <Home />,
+				meta: {
+					requiresAuth: true,
+					title: "首页",
+					key: "home"
+				}
+			},
+			{
+				path: "/home/user",
+				element: <User />,
+				meta: {
+					requiresAuth: true,
+					title: "首页",
+					key: "home"
+				}
+			},
+			...routerArray
+		]
 	},
-	...routerArray,
+	// ...routerArray,
 	{
 		path: "*",
 		element: <Navigate to="/login" />

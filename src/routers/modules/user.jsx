@@ -1,4 +1,4 @@
-import Home from "@/views/home/index";
+import User from "@/views/user/index";
 import {LayoutIndex} from "@/routers/constant";
 // 首页模块
 
@@ -7,12 +7,12 @@ const homeRouter = [
 		element: <LayoutIndex />,
 		children: [
 			{
-				path: "/home/index",
-				element: <Home />,
+				path: "/user/index",
+				element: <User />,
 				meta: {
 					requiresAuth: true,
 					title: "首页",
-					key: "home"
+					key: "user"
 				}
 			}
 		]

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from '@/redux/global/action';
 import md5 from "js-md5";
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input,message } from 'antd';
 
 const LoginForm = (props) => {
   const navigate = useNavigate();
@@ -13,12 +13,13 @@ const LoginForm = (props) => {
     try {
       console.log('Success:', loginForm);
 			setLoading(true);
-			loginForm.password = md5(loginForm.password);
-			const { data } = await loginApi(loginForm);
-			setToken(data?.access_token);
-			setTabsList([]);
+			// loginForm.password = md5(loginForm.password);
+			// const { data } = await loginApi(loginForm);
+			// setToken(data?.access_token);
+			// setTabsList([]);
 			message.success("登录成功！");
 			navigate("/home/index");
+            console.log('跳转')
 		} finally {
 			setLoading(false);
 		}

@@ -1,4 +1,8 @@
 import axios from "axios";
+import { message } from "antd";
+import { store } from "@/redux";
+import { AxiosCanceler } from "./helper/axiosCancel";
+import { checkStatus } from "./helper/checkStatus";
 
 const axiosCanceler = new AxiosCanceler();
 const config = {
@@ -20,11 +24,10 @@ class RequestHttp {
 		 */
 		this.service.interceptors.request.use(
 			(config) => {
-				NProgress.start();
 				// * 将当前请求添加到 pending 中
 				axiosCanceler.addPending(config);
 				// * 如果当前请求不需要显示 loading,在api服务中通过指定的第三个参数: { headers: { noLoading: true } }来控制不显示loading，参见loginApi
-				config.headers.noLoading || showFullScreenLoading();
+				// config.headers.noLoading || showFullScreenLoading();
 				const token = store.getState().global.token;
 				return { ...config, headers: { ...config.headers, "x-access-token": token } };
 			},
@@ -40,15 +43,15 @@ class RequestHttp {
 		this.service.interceptors.response.use(
 			(response) => {
 				const { data, config } = response;
-				NProgress.done();
+				// NProgress.done();
 				// * 在请求结束后，移除本次请求(关闭loading)
 				axiosCanceler.removePending(config);
-				tryHideFullScreenLoading();
+				// tryHideFullScreenLoading();
 				// * 登录失效（code == 599）
 				if (data.code == ResultEnum.OVERDUE) {
 					store.dispatch(setToken(""));
 					message.error(data.msg);
-					window.location.hash = "/login";
+					window.location.hash = "/Login";
 					return Promise.reject(data);
 				}
 				// * 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错）
@@ -61,8 +64,7 @@ class RequestHttp {
 			},
 			async (error) => {
 				const { response } = error;
-				NProgress.done();
-				tryHideFullScreenLoading();
+				// tryHideFullScreenLoading();
 				// 请求超时单独判断，请求超时没有 response
 				if (error.message.indexOf("timeout") !== -1) message.error("请求超时，请稍后再试");
 				// 根据响应的错误状态码，做不同的处理

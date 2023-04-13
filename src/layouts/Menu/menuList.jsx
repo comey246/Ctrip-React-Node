@@ -7,7 +7,7 @@ export const items = [
         label: '商城',
     },
     {
-        key: 'sub1',
+        key: 'user',
         icon: <UserOutlined/>,
         label: '我的',
         children: [
@@ -17,24 +17,24 @@ export const items = [
             //     label: '购物车',
             // },
             {
-                key: 'info',
+                key: 'orderinfo',
                 icon: <UserOutlined/>,
                 label: '订单信息',
             }
         ]
     },
     {
-        key: 'sub2',
+        key: 'admin',
         icon: <VideoCameraOutlined/>,
-        label: '后台管理',
+        label: '管理',
         children: [
             {
-                key: 'adminInfo',
+                key: 'ordermanage',
                 icon: <UserOutlined/>,
                 label: '订单管理',
             },
             {
-                key: 'adminUser',
+                key: 'usersmanage',
                 icon: <UserOutlined/>,
                 label: '用户管理',
             }

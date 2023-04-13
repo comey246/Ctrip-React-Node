@@ -36,7 +36,7 @@ const Index = (props) => {
                    //     updateCollapse(collapsed)
                    // }}
                    collapsed={isCollapse}>
-                >
+
             <LayoutMenu />
         </Sider>
           <Layout className="site-layout">

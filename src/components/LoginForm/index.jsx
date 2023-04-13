@@ -2,24 +2,27 @@ import React, { Fragment,useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from '@/redux/global/action';
+import { loginApi } from "@/api/login";
 import md5 from "js-md5";
 import './index.css'
 import { Button, Checkbox, Form, Input,message } from 'antd';
 
 const LoginForm = (props) => {
   const navigate = useNavigate();
+    const { setToken} = props;
   const [loading, setLoading] = useState(false);
 
   const onFinish = async (loginForm) => {
     try {
       console.log('Success:', loginForm);
 			setLoading(true);
-			// loginForm.password = md5(loginForm.password);
-			// const { data } = await loginApi(loginForm);
+			loginForm.password = md5(loginForm.password);
+			const { data } = await loginApi(loginForm);
+            console.log(data)
 			// setToken(data?.access_token);
 			// setTabsList([]);
 			message.success("登录成功！");
-			navigate("/home");
+			navigate("/mall");
             console.log('跳转')
 		} finally {
 			setLoading(false);

@@ -22,12 +22,12 @@ export const rootRouter = [
 		element: <Navigate to="/login" />
 	},
 	{
-		path: "/login",
+		path: "/Login",
 		element: <Login />,
 		meta: {
 			requiresAuth: false,
 			title: "登录页",
-			key: "login"
+			key: "Login"
 		}
 	},
 	{

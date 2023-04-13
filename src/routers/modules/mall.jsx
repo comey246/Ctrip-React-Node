@@ -1,16 +1,16 @@
 import lazyLoad from "@/routers/lazyLoad.jsx";
 // 首页模块
 
-const homeRouter = [
+const mallRouter = [
 			{
-				path: "/home",
+				path: "/mall",
 				element: lazyLoad('../views/Mall/index'),
 				meta: {
 					requiresAuth: true,
-					title: "首页",
-					key: "home"
+					title: "商城",
+					key: "mall"
 				}
 			}
 ];
 
-export default homeRouter;
+export default mallRouter;

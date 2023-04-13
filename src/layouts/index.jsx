@@ -1,35 +1,79 @@
-import React, {Fragment} from 'react'
-import {Outlet} from "react-router-dom";
-import {Layout, Space} from 'antd';
-import LayoutMenu from './Menu'
-import LayoutFooter from './Footer'
-import LayoutHeader from './Header'
-const {Header, Footer, Sider, Content, Button, Menu} = Layout;
-import './index.css'
+import React, { Fragment, useState } from "react";
+import { Outlet } from "react-router-dom";
+import { Layout, Space, theme } from "antd";
+import LayoutMenu from "./Menu";
+import LayoutFooter from "./Footer";
+import LayoutHeader from "./Header";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from "@ant-design/icons";
+const { Header, Footer, Sider, Content, Button, Menu } = Layout;
+import "./index.css";
 
 const Index = (props) => {
-
-    return (
-        <Fragment>
-            <Space
-                direction="vertical"
-                style={{
-                    width: '100%',
-                }}
-                size={[0, 48]}
+  const [collapsed, setCollapsed] = useState(false);
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+  return (
+    <Fragment>
+      <Space
+        direction="vertical"
+        style={{
+          width: "100%",
+        }}
+        size={[0, 48]}
+      >
+        <Layout>
+          <Sider trigger={null} collapsible collapsed={collapsed}>
+            <div className="logo" />
+            <LayoutMenu />
+          </Sider>
+          <Layout className="site-layout">
+            <Header
+              style={{
+                padding: 0,
+                background: colorBgContainer,
+              }}
             >
-                <Layout>
-                    <Sider>
-                        <LayoutMenu/>
-                    </Sider>
-                    <Layout>
-                        <Header><LayoutHeader/></Header>
-                        <Content>这是Content包含路由组件<Outlet/></Content>
-                        <Footer><LayoutFooter/></Footer>
-                    </Layout>
-                </Layout>
-            </Space>
-        </Fragment>
-    )
-}
-export default Index
+              {React.createElement(
+                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+                {
+                  className: "trigger",
+                  onClick: () => setCollapsed(!collapsed),
+                }
+              )}
+              <LayoutHeader />
+            </Header>
+            <Content
+              style={{
+                margin: "24px 16px",
+                padding: 24,
+                minHeight: 280,
+                background: colorBgContainer,
+              }}
+            >
+              <h2>这是Content包含路由组件</h2>
+              <Outlet />
+            </Content>
+            <Footer
+              style={{
+                margin: "24px 16px",
+                padding: 24,
+                minHeight: 280,
+                background: colorBgContainer,
+              }}
+            >
+              <LayoutFooter />
+            </Footer>
+          </Layout>
+        </Layout>
+      </Space>
+    </Fragment>
+  );
+};
+export default Index;

@@ -1,21 +1,28 @@
 import React from 'react';
+import {connect} from "react-redux";
+import { updateCollapse } from "@/redux/menu/action";
+import  './index.css'
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
+import {Layout} from 'antd';
 
-const { Header, Sider, Content } = Layout;
+const { Header } = Layout;
 const Index = (props) => {
-
+    const { isCollapse, updateCollapse } = props;
     return (
         <div >
-            <h2>header</h2>
+            {React.createElement(
+                isCollapse ? MenuUnfoldOutlined : MenuFoldOutlined,
+                {
+                    className: "trigger",
+                    onClick: () => updateCollapse(!isCollapse),
+                }
+            )}
         </div>
     );
 };
-
-export default Index;
+const mapStateToProps = (state) => state.menu;
+const mapDispatchToProps = { updateCollapse };
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

@@ -1,24 +1,20 @@
 import React, { Fragment, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Layout, Space, theme } from "antd";
+import { updateCollapse } from "@/redux/menu/action";
+import { connect } from "react-redux";
+import {Layout, Space, theme} from "antd";
 import LayoutMenu from "./Menu";
 import LayoutFooter from "./Footer";
 import LayoutHeader from "./Header";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-const { Header, Footer, Sider, Content, Button, Menu } = Layout;
 import "./index.css";
 
+const { Header, Footer, Sider, Content } = Layout;
+
 const Index = (props) => {
-  const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+    const {
+        token: { colorBgContainer },
+    } = theme.useToken();
+    const { isCollapse,updateCollapse } = props;
   return (
     <Fragment>
       <Space
@@ -29,26 +25,28 @@ const Index = (props) => {
         size={[0, 48]}
       >
         <Layout>
-          <Sider trigger={null} collapsible collapsed={collapsed}>
-            <div className="logo" />aaa
+            <Sider trigger={null}
+                   breakpoint="xs"
+                   onBreakpoint={(broken) => {
+                       console.log(broken);
+                       updateCollapse(broken)
+                   }}
+                   // onCollapse={(collapsed, type) => {
+                   //     console.log(collapsed, type);
+                   //     updateCollapse(collapsed)
+                   // }}
+                   collapsed={isCollapse}>
+                >
             <LayoutMenu />
-          </Sider>
+        </Sider>
           <Layout className="site-layout">
-            <Header
-              style={{
-                padding: 0,
-                background: colorBgContainer,
-              }}
-            >
-              {React.createElement(
-                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-                {
-                  className: "trigger",
-                  onClick: () => setCollapsed(!collapsed),
-                }
-              )}
-              <LayoutHeader />
-            </Header>
+              <Header
+                  style={{
+                      padding: 0,
+                      background: colorBgContainer,
+                  }}
+              ><LayoutHeader />
+              </Header>
             <Content
               style={{
                 margin: "24px 16px",
@@ -57,7 +55,6 @@ const Index = (props) => {
                 background: colorBgContainer,
               }}
             >
-
               <Outlet />
             </Content>
             <Footer
@@ -76,4 +73,8 @@ const Index = (props) => {
     </Fragment>
   );
 };
-export default Index;
+
+const mapStateToProps = (state) => state.menu;
+const mapDispatchToProps = { updateCollapse };
+export default connect(mapStateToProps,mapDispatchToProps)(Index);
+

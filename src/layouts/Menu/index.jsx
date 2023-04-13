@@ -1,9 +1,11 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment} from 'react';
+import { Menu} from "antd";
+import {connect} from "react-redux";
+import './index.css'
 import {
     UserOutlined,
     VideoCameraOutlined,
 } from '@ant-design/icons';
-import {Button, Menu} from 'antd';
 
 const items = [
     {
@@ -16,11 +18,11 @@ const items = [
         icon: <UserOutlined/>,
         label: '我的',
         children: [
-            {
-                key: 'car',
-                icon: <UserOutlined/>,
-                label: '购物车',
-            },
+            // {
+            //     key: 'car',
+            //     icon: <UserOutlined/>,
+            //     label: '购物车',
+            // },
             {
                 key: 'info',
                 icon: <UserOutlined/>,
@@ -47,18 +49,18 @@ const items = [
     },
 ]
 const Index = (props) => {
-
     return (
         <Fragment>
-            <Menu
-                theme="dark"
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                items={items}
-            />
+            <div className="logo" />
+                <Menu
+                    theme="dark"
+                    mode="inline"
+                    defaultSelectedKeys={['1']}
+                    defaultOpenKeys={['sub1']}
+                    items={items}
+                />
         </Fragment>
     )
 };
 
-export default Index;
+export default connect()(Index);

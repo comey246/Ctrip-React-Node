@@ -1,4 +1,4 @@
-import { AnyAction } from "redux";
+
 import * as type from "@/redux/constant"
 import produce from "immer";
 

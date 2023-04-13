@@ -3,11 +3,13 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import reduxThunk from "redux-thunk";
 import reduxPromise from "redux-promise";
-
+import global from "@/redux/global/reducer.js";
+import menu from "@/redux/menu/reducer.js";
 
 // 创建reducer(拆分reducer)
 const reducer = combineReducers({
-	
+	global,
+	menu
 });
 
 // redux 持久化配置

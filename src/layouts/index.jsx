@@ -30,7 +30,7 @@ const Index = (props) => {
       >
         <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed}>
-            <div className="logo" />
+            <div className="logo" />aaa
             <LayoutMenu />
           </Sider>
           <Layout className="site-layout">
@@ -57,14 +57,14 @@ const Index = (props) => {
                 background: colorBgContainer,
               }}
             >
-              <h2>这是Content包含路由组件</h2>
+
               <Outlet />
             </Content>
             <Footer
               style={{
                 margin: "24px 16px",
                 padding: 24,
-                minHeight: 280,
+                minHeight: 200,
                 background: colorBgContainer,
               }}
             >

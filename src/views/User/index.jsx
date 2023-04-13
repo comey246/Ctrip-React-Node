@@ -6,7 +6,7 @@ import LoginForm from '@/components/LoginForm'
 
 export default function index() {
     const navigate = useNavigate()
-    const goHome = () => navigate('/home/index')
+    const goHome = () => navigate('/home')
     const goHome1 = () => navigate('/home/home')
   return (
     <Fragment>

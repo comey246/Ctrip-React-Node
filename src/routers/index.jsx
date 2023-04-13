@@ -1,8 +1,10 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
 import {LayoutIndex} from "@/routers/constant.jsx";
+import Layouts from "@/layouts/index.jsx";
 import Home from "@/views/Home/index.jsx";
-import User from "@/views/user/index";
+import User from "@/views/User/index.jsx";
+import lazyLoad from "@/routers/lazyLoad.jsx";
 
 // * 导入所有router
 const metaRouters = import.meta.globEager("./modules/*.jsx");
@@ -29,31 +31,13 @@ export const rootRouter = [
 		}
 	},
 	{
-		element: <LayoutIndex />,
+		element: <Layouts />,
 		meta: {
 			requiresAuth: false,
 			title: "主页",
-			key: "login"
+			key: "home"
 		},
 		children: [
-			{
-				path: "/home/index",
-				element: <Home />,
-				meta: {
-					requiresAuth: true,
-					title: "首页",
-					key: "home"
-				}
-			},
-			{
-				path: "/home/user",
-				element: <User />,
-				meta: {
-					requiresAuth: true,
-					title: "首页",
-					key: "home"
-				}
-			},
 			...routerArray
 		]
 	},

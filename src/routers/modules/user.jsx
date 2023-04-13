@@ -1,21 +1,15 @@
-import User from "@/views/user/index";
-import {LayoutIndex} from "@/routers/constant";
+import lazyLoad from "@/routers/lazyLoad.jsx";
 // 首页模块
 
 const homeRouter = [
 	{
-		// element: <LayoutIndex />,
-		// children: [
-		// 	{
-				path: "/user/index",
-				element: <User />,
-				meta: {
-					requiresAuth: true,
-					title: "首页",
-					key: "user"
-				}
-	// 		}
-	// 	]
+		path: "/User",
+		element: lazyLoad("../views/User/index"),
+		meta: {
+			requiresAuth: true,
+			title: "首页",
+			key: "user"
+		}
 	}
 ];
 

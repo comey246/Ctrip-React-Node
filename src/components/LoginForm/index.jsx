@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from '@/redux/global/action';
 import md5 from "js-md5";
+import './index.css'
 import { Button, Checkbox, Form, Input,message } from 'antd';
 
 const LoginForm = (props) => {
@@ -18,7 +19,7 @@ const LoginForm = (props) => {
 			// setToken(data?.access_token);
 			// setTabsList([]);
 			message.success("登录成功！");
-			navigate("/home/index");
+			navigate("/home");
             console.log('跳转')
 		} finally {
 			setLoading(false);
@@ -30,6 +31,7 @@ const LoginForm = (props) => {
 
   return (
     <Fragment>
+        <div className="loginForm">
         <h2>登陆页面</h2>
         <Form
     name="basic"
@@ -97,6 +99,7 @@ const LoginForm = (props) => {
       </Button>
     </Form.Item>
   </Form>
+        </div>
     </Fragment>
  )
 }

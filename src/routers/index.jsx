@@ -2,7 +2,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
 import {LayoutIndex} from "@/routers/constant.jsx";
 import Layouts from "@/layouts/index.jsx";
-import Home from "@/views/Home/index.jsx";
+import Home from "@/views/Mall/index.jsx";
 import User from "@/views/User/index.jsx";
 import lazyLoad from "@/routers/lazyLoad.jsx";
 

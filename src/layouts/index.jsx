@@ -28,7 +28,7 @@ const Index = (props) => {
             <Sider trigger={null}
                    breakpoint="xs"
                    onBreakpoint={(broken) => {
-                       console.log(broken);
+                       // console.log(broken);
                        updateCollapse(broken)
                    }}
                    // onCollapse={(collapsed, type) => {

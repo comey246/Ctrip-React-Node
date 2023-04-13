@@ -1,53 +1,16 @@
 import React, {Fragment} from 'react';
 import { Menu} from "antd";
 import {connect} from "react-redux";
+import {items} from "@/layouts/Menu/menuList.jsx";
 import './index.css'
-import {
-    UserOutlined,
-    VideoCameraOutlined,
-} from '@ant-design/icons';
 
-const items = [
-    {
-        key: 'mall',
-        icon: <UserOutlined/>,
-        label: '商城',
-    },
-    {
-        key: 'sub1',
-        icon: <UserOutlined/>,
-        label: '我的',
-        children: [
-            // {
-            //     key: 'car',
-            //     icon: <UserOutlined/>,
-            //     label: '购物车',
-            // },
-            {
-                key: 'info',
-                icon: <UserOutlined/>,
-                label: '订单信息',
-            }
-        ]
-    },
-    {
-        key: 'sub2',
-        icon: <VideoCameraOutlined/>,
-        label: '后台管理',
-        children: [
-            {
-                key: 'adminInfo',
-                icon: <UserOutlined/>,
-                label: '订单管理',
-            },
-            {
-                key: 'adminUser',
-                icon: <UserOutlined/>,
-                label: '用户管理',
-            }
-        ]
-    },
-]
+// 点击当前菜单跳转页面
+const navigate = useNavigate();
+const selectMenu = (key) => {
+    const route = searchRoute(key, props.menuList);
+    if (route.isLink) window.open(route.isLink, "_blank");
+    navigate(key);
+};
 const Index = (props) => {
     return (
         <Fragment>
@@ -58,6 +21,7 @@ const Index = (props) => {
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     items={items}
+                    onClick={selectMenu}
                 />
         </Fragment>
     )

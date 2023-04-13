@@ -4,7 +4,7 @@ import lazyLoad from "@/routers/lazyLoad.jsx";
 const homeRouter = [
 			{
 				path: "/home",
-				element: lazyLoad('../views/Home/index'),
+				element: lazyLoad('../views/Mall/index'),
 				meta: {
 					requiresAuth: true,
 					title: "首页",

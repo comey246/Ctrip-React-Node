@@ -13,4 +13,12 @@ export default defineConfig({
   proxy: {
     '/api': 'http://127.0.0.1:8000',
   },
+  css: {
+    // 预处理器配置项
+    preprocessorOptions: {
+      less: {
+        math: "always",
+      },
+    },
+  },
 })

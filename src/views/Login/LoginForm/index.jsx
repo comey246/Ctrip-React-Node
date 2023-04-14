@@ -1,8 +1,8 @@
 import React, { Fragment,useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { setToken } from '@/redux/global/action';
-import { loginApi } from "@/api/login";
+import { setToken } from '@/redux/global/action.js';
+import { loginApi } from "@/api/login.js";
 import md5 from "js-md5";
 import './index.css'
 import { Button, Checkbox, Form, Input,message } from 'antd';
@@ -90,7 +90,6 @@ const LoginForm = (props) => {
     >
       <Checkbox>Remember me</Checkbox>
     </Form.Item>
-
     <Form.Item
       wrapperCol={{
         offset: 8,

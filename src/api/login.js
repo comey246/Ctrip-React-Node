@@ -20,5 +20,5 @@ export const getAuthorButtons = () => {
 
 // * 获取菜单列表
 export const getMenuList = () => {
-	return http.get(PORT1 + `/menu/list`);
+	return http.get( `/menu/list`);
 };

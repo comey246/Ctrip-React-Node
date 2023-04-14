@@ -17,7 +17,7 @@ export const items = [
             //     label: '购物车',
             // },
             {
-                key: 'orderinfo',
+                key: 'userorder',
                 icon: <UserOutlined/>,
                 label: '订单信息',
             }
@@ -29,12 +29,12 @@ export const items = [
         label: '管理',
         children: [
             {
-                key: 'ordermanage',
+                key: 'adminorder',
                 icon: <UserOutlined/>,
                 label: '订单管理',
             },
             {
-                key: 'usersmanage',
+                key: 'adminuser',
                 icon: <UserOutlined/>,
                 label: '用户管理',
             }

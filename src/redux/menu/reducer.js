@@ -1,5 +1,6 @@
 import * as type from "@/redux/constant"
 import produce from "immer";
+import {SET_MENU_LIST} from "@/redux/constant";
 
 
 const menuState = {
@@ -12,6 +13,9 @@ const menu = (state = menuState,action) =>
         switch (action.type){
             case type.UPDATE_COLLAPSE:
                 draftState.isCollapse = action.isCollapse;
+                break;
+            case type.SET_MENU_LIST:
+                draftState.menuList = action.menuList;
                 break;
             default:
                 return draftState;

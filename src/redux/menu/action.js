@@ -5,3 +5,8 @@ export const updateCollapse = (isCollapse) => ({
 	type: type.UPDATE_COLLAPSE,
 			isCollapse
 });
+
+export const setMenuList = (menuList) => ({
+	type: types.SET_MENU_LIST,
+	menuList
+});

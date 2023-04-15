@@ -3,6 +3,7 @@ import { message } from "antd";
 import { store } from "@/redux";
 import { AxiosCanceler } from "./helper/axiosCancel";
 import { checkStatus } from "./helper/checkStatus";
+import { ResultEnum } from "./config/httpEnum"
 
 const axiosCanceler = new AxiosCanceler();
 const config = {

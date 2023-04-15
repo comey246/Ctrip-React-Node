@@ -1,9 +1,9 @@
-import React, { Fragment,useState } from 'react'
+import React, {Fragment, useEffect, useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from '@/redux/global/action.js';
-import { loginApi } from "@/api/login.js";
-import md5 from "js-md5";
+import {loginPost, loginGet} from "@/api/login.js";
+import {encodePassword} from "@/utils/util.js";
 import './index.css'
 import { Button, Checkbox, Form, Input,message } from 'antd';
 
@@ -12,18 +12,24 @@ const LoginForm = (props) => {
     const { setToken} = props;
   const [loading, setLoading] = useState(false);
 
+  useEffect(()=>{
+
+  })
+
   const onFinish = async (loginForm) => {
     try {
-      console.log('Success:', loginForm);
-			setLoading(true);
-			loginForm.password = md5(loginForm.password);
-			const { data } = await loginApi(loginForm);
-            console.log(data)
-			// setToken(data?.access_token);
-			// setTabsList([]);
-			message.success("登录成功！");
-			navigate("/mall");
-            console.log('跳转')
+        console.log('Success:', loginForm);
+        const {username, password} = loginForm
+        setLoading(true);
+
+        const {data:{publicKeyPem}} = await loginGet({username})
+        const encryptedBase64 = encodePassword(publicKeyPem,password)
+        const data = await loginPost({username,password:encryptedBase64});
+        // setToken(data?.access_token);
+        // setTabsList([]);
+        message.success("登录成功！");
+        navigate("/mall");
+        console.log('跳转')
 		} finally {
 			setLoading(false);
 		}

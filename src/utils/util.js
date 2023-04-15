@@ -1,3 +1,5 @@
+import forge from "node-forge";
+
 /**
  * @description 递归查询对应的路由
  * @param {String} path 当前访问地址
@@ -15,3 +17,13 @@ export const searchRoute = (path, routes = [])=> {
     }
     return result;
 };
+
+export const encodePassword = (publicKeyPem,password) => {
+    const publicKey = forge.pki.publicKeyFromPem(publicKeyPem);
+    const plaintextBytes = forge.util.encodeUtf8(password);
+    const encryptedBytes = publicKey.encrypt(plaintextBytes, 'RSA-OAEP', {
+        md: forge.md.sha256.create()
+    });
+    const encryptedBase64 = forge.util.encode64(encryptedBytes);
+    return encryptedBase64
+}

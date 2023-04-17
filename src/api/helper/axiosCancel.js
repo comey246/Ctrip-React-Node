@@ -45,7 +45,7 @@ export class AxiosCanceler {
      */
     removeAllPending() {
         pendingMap.forEach(cancel => {
-            cancel && isFunction(cancel) && cancel();
+            cancel && cancel();
         });
         pendingMap.clear();
     }

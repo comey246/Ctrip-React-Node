@@ -1,10 +1,7 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
-import {LayoutIndex} from "@/routers/constant.jsx";
 import Layouts from "@/layouts/index.jsx";
-import Home from "@/views/Mall/index.jsx";
-import User from "@/views/User/index.jsx";
-import lazyLoad from "@/routers/lazyLoad.jsx";
+
 
 // * 导入所有router
 const metaRouters = import.meta.globEager("./modules/*.jsx");
@@ -22,7 +19,7 @@ export const rootRouter = [
 		element: <Navigate to="/login" />
 	},
 	{
-		path: "/Login",
+		path: "/login",
 		element: <Login />,
 		meta: {
 			requiresAuth: false,
@@ -33,7 +30,7 @@ export const rootRouter = [
 	{
 		element: <Layouts />,
 		meta: {
-			requiresAuth: false,
+			requiresAuth: true,
 			title: "主页",
 			key: "home"
 		},

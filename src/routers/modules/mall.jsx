@@ -3,7 +3,7 @@ import lazyLoad from "@/routers/lazyLoad.jsx";
 
 const mallRouter = [
 			{
-				path: "/mall",
+				path: "mall",
 				element: lazyLoad('../views/Mall/index'),
 				meta: {
 					requiresAuth: true,

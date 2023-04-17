@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import {items} from "@/layouts/Menu/menuList.jsx";
 import { setMenuList } from "@/redux/menu/action";
-import { getMenuList } from "@/api/login";
+import { menuListGet } from "@/api/login";
 import {searchRoute} from "@/utils/util.js";
 import './index.css'
 
@@ -31,6 +31,7 @@ const Index = (props) => {
     const navigate = useNavigate();
     const selectMenu = (key) => {
         console.log(key)
+        navigate(key.key)
         // const route = searchRoute(key, props.menuList);
         // if (route.isLink) window.open(route.isLink, "_blank");
         // navigate(key);

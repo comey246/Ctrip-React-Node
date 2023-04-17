@@ -1,12 +1,15 @@
 import logo from './logo.svg';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter,HashRouter} from 'react-router-dom'
 import Router from "@/routers/index";
+import AuthRouter from "@/routers/utils/authRouter.jsx";
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-    <Router />
+      <AuthRouter>
+        <Router />
+      </AuthRouter>
     </BrowserRouter>
   );
 }

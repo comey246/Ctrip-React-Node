@@ -4,7 +4,9 @@
  */
 export const ResultEnum = {
 	SUCCESS:200,
-	ERROR:500,
+	ERROR1:500,
+	ERROR2:501,
+	ERROR3:502,
 	OVERDUE:599,
 	TIMEOUT:10000,
 	TYPE:"success"

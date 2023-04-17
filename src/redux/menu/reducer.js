@@ -1,6 +1,5 @@
 import * as type from "@/redux/constant"
 import produce from "immer";
-import {SET_MENU_LIST} from "@/redux/constant";
 
 
 const menuState = {

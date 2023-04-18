@@ -1,8 +1,8 @@
-import logo from './logo.svg';
-import {BrowserRouter,HashRouter} from 'react-router-dom'
+import logo from "./logo.svg";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import Router from "@/routers/index";
 import AuthRouter from "@/routers/utils/authRouter.jsx";
-import './App.css';
+import "./index.less";
 
 function App() {
   return (

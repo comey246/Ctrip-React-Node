@@ -17,61 +17,36 @@ const Index = (props) => {
   const { isCollapse, updateCollapse } = props;
   return (
     <Fragment>
-      {/* <Space
-        direction="vertical"
-        style={{
-          width: "100%",
-        }}
-        size={[0, 48]}
-      > */}
       <Layout style={{ minHeight: "100%" }}>
         <Sider
+          // className="menu" // Add the menu class here
           trigger={null}
           breakpoint="xs"
           onBreakpoint={(broken) => {
-            // console.log(broken);
             updateCollapse(broken);
           }}
-          // onCollapse={(collapsed, type) => {
-          //     console.log(collapsed, type);
-          //     updateCollapse(collapsed)
-          // }}
           collapsed={isCollapse}
         >
           <LayoutMenu />
         </Sider>
         <Layout className="site-layout">
           <Header
-            style={{
-              padding: 0,
-              background: colorBgContainer,
-            }}
+            className="fixed-header"
+            style={{ background: colorBgContainer }}
           >
             <LayoutHeader />
           </Header>
           <Content
-            style={{
-              margin: "24px 16px",
-              padding: 24,
-              minHeight: 280,
-              background: colorBgContainer,
-            }}
+            className="custom-content"
+            style={{ paddingBottom: "60px", background: colorBgContainer }}
           >
             <Outlet />
           </Content>
-          <Footer
-            style={{
-              margin: "24px 16px",
-              padding: 24,
-              minHeight: 200,
-              background: colorBgContainer,
-            }}
-          >
+          <Footer className="custom-footer, fixed-footer">
             <LayoutFooter />
           </Footer>
         </Layout>
       </Layout>
-      {/* </Space> */}
     </Fragment>
   );
 };

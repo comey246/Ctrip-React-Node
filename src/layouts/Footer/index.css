@@ -1,0 +1,17 @@
+/* index.css */
+.footer {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.footer-item {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.footer-item:hover {
+  color: #1890ff;
+}

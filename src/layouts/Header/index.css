@@ -1,0 +1,28 @@
+/* index.css */
+.header {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.trigger {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.header-search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header-actions button {
+  font-weight: bold;
+}
+
+.header-actions .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}

@@ -8,9 +8,23 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 1%;
+  background-color: #f0f2f5;
 }
 
 .product-list .ant-list-item {
   display: flex;
   justify-content: center;
+}
+.menu {
+  background-color: #ffffff;
+  border: 1px solid #1890ff;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.menu .ant-menu-item {
+  font-size: 17px;
+  font-weight: bold;
 }

@@ -17,7 +17,7 @@
 }
 
 .card-description {
-  font-size: 0.875rem;
+  font-size: 1.4vw;
   margin-bottom: 8px;
 }
 
@@ -33,28 +33,27 @@
 }
 
 .detailButton {
-  font-size: 0.75rem;
+  font-size: 1.2vw;
+  width: 15vw;
+  height: 4vw;
 }
 
-媒体查询，针对不同屏幕尺寸应用样式
-@media screen and (max-width: 767px) {
-  .card-image {
-    max-height: 150px;
-  }
+.tagGroup .ant-tag {
+  font-size: 1.2vw;
+  width: 12vw;
+  height: 3vw;
+  line-height: 3vw;
+  text-align: center;
+} */
 
-  .cardInfo {
-    height: 50px;
-  }
-}
-*/
-/* .card {
+.card {
   max-width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 2vw;
 }
 
 .card-image {
   max-width: 100%;
-  max-height: 200px;
+  max-height: 50vw;
   object-fit: cover;
 }
 
@@ -62,12 +61,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 60px;
+  height: 12vw;
 }
 
 .card-description {
-  font-size: calc(10px + 0.5vw);
-  margin-bottom: 8px;
+  font-size: 1.4vw;
+  margin-bottom: 1vw;
 }
 
 .tagGroup {
@@ -82,84 +81,24 @@
 }
 
 .detailButton {
-  font-size: calc(10px + 0.3vw);
-} */
-
-/* 媒体查询，针对不同屏幕尺寸应用样式 */
-/* @media screen and (max-width: 767px) {
-  .card-image {
-    max-height: 150px;
-  }
-
-  .cardInfo {
-    height: 50px;
-  }
-}
-/* */ .card {
-  max-width: 100%;
-  margin-bottom: 16px;
+  font-size: 1.2vw;
+  width: 15vw;
+  height: 4vw;
 }
 
-.card-image {
-  max-width: 100%;
-  max-height: 200px;
-  object-fit: cover;
+.tagGroup .ant-tag {
+  font-size: 1.2vw;
+  width: 12vw;
+  height: 3vw;
+  line-height: 3vw;
+  text-align: center;
 }
 
-.cardInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 60px;
+.card .ant-card-meta-title {
+  font-size: 2vw;
 }
 
-.card-description {
-  font-size: 14px;
-  margin-bottom: 8px;
+.cardFooter p {
+  font-size: 1.6vw;
+  font-weight: bold;
 }
-
-.tagGroup {
-  display: flex;
-  justify-content: space-between;
-}
-
-.cardFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.detailButton {
-  font-size: 12px;
-}
-
-/* 媒体查询，针对不同屏幕尺寸应用样式 */
-@media screen and (max-width: 1000px) {
-  .card-image {
-    max-height: 150px;
-  }
-
-  .cardInfo {
-    height: 50px;
-  }
-
-  .card-description {
-    font-size: 12px;
-  }
-
-  .tagGroup {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .cardFooter {
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-start;
-  }
-
-  .detailButton {
-    font-size: 8px;
-    padding: 0 4px;
-  }
-} */

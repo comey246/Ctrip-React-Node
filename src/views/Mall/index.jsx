@@ -1,18 +1,22 @@
 import "./index.css";
-import React, {Fragment} from "react";
-import {Button} from "antd";
-import {useNavigate} from "react-router-dom";
+import React, { Fragment } from "react";
+import { Table } from "antd";
+import { useNavigate } from "react-router-dom";
+import ProductList from "./shangcheng";
+
 const Index = () => {
-    const navigate = useNavigate()
-    const a = ()=> {
-        navigate("/user/order")
-    }
-    return (
-        <Fragment>
-            <button onClick={a}>user</button>
-            <div style={{border:"1px solid red"}}><h2>这是商城在views/mall</h2></div>
-        </Fragment>
-    );
+  const navigate = useNavigate();
+  const a = () => {
+    navigate("/user/order");
+  };
+
+  return (
+    <Fragment>
+      {/* <button onClick={a}>user</button>
+            <div style={{border:"1px solid red"}}><h2>这是商城在views/mall</h2></div> */}
+      <ProductList />
+    </Fragment>
+  );
 };
 
 export default Index;

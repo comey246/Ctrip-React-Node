@@ -1,0 +1,16 @@
+.list-flex {
+  display: flex;
+  flex-direction: row; /* 横向排列，可根据需求更改 */
+  flex-wrap: wrap; /* 自动换行，可根据需求更改 */
+}
+/* ProductList.css */
+.product-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1%;
+}
+
+.product-list .ant-list-item {
+  display: flex;
+  justify-content: center;
+}

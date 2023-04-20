@@ -54,7 +54,7 @@ const TicketBooking = () => {
           required
         />
         <div className="total-price-and-submit">
-          <span>总价：¥{tickets * 1800}</span>
+          <span className="totalprice">总价：¥{tickets * 1800}</span>
           <button type="submit">确认下单</button>
         </div>
       </form>

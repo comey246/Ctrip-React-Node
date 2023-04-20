@@ -84,7 +84,7 @@ button:active {
   gap: 1rem; /* 在总价和按钮之间添加间距 */
 }
 
-span {
+.totalprice {
   color: red;
   font-size: 1.2rem; /* 字号增大 */
   font-family: "Georgia", serif; /* 使用 Georgia 字体，可以替换为您喜欢的字体 */

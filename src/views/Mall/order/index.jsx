@@ -18,21 +18,24 @@ const TicketBooking = () => {
       <h1>机票预订</h1>
       <div className="flight-info">
         <h2>航班信息</h2>
-        <p>航班号：CA1234</p>
-        <p>起飞时间：2023-04-22 14:00</p>
-        <p>到达时间：2023-04-22 18:00</p>
-        <p>价格：¥1800</p>
+        <div className="left-info">
+          <p>航班号：CA1234</p>
+          <p>起飞时间：2023-04-22 14:00</p>
+          <p>到达时间：2023-04-22 18:00</p>
+        </div>
+        <div className="right-info">
+          <p>价格：¥1800</p>
+          <label htmlFor="tickets">购买数量：</label>
+          <input
+            type="number"
+            id="tickets"
+            value={tickets}
+            onChange={(e) => setTickets(e.target.value)}
+            min="1"
+          />
+        </div>
       </div>
       <form onSubmit={handleSubmit} className="booking-form">
-        <label htmlFor="tickets">购买数量：</label>
-        <input
-          type="number"
-          id="tickets"
-          value={tickets}
-          onChange={(e) => setTickets(e.target.value)}
-          min="1"
-        />
-
         <label htmlFor="phone">手机号码：</label>
         <input
           type="tel"
@@ -50,8 +53,10 @@ const TicketBooking = () => {
           onChange={(e) => setIdNumber(e.target.value)}
           required
         />
-
-        <button type="submit">提交</button>
+        <div className="total-price-and-submit">
+          <span>总价：¥{tickets * 1800}</span>
+          <button type="submit">确认下单</button>
+        </div>
       </form>
     </div>
   );

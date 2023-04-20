@@ -6,6 +6,11 @@
   border-radius: 5px;
 }
 
+.search-container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .destination,
 .date,
 .plane-model,
@@ -41,6 +46,15 @@
   color: #f56a00;
 }
 
+.book-button {
+  text-align: right;
+}
 button {
   width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .search-container {
+    flex-direction: column;
+  }
 }

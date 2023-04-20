@@ -28,30 +28,33 @@ export default () => (
     dataSource={flightsData}
     toolBarRender={() => {
       return [
-        <Select
-          key="departure"
-          showSearch
-          style={{ width: 200 }}
-          placeholder="出发地"
-          optionFilterProp="children"
-        >
-          <Option value="beijing">北京</Option>
-          <Option value="shanghai">上海</Option>
-          <Option value="guangzhou">广州</Option>
-          {/* 更多出发地选项 */}
-        </Select>,
-        <Select
-          key="destination"
-          showSearch
-          style={{ width: 200 }}
-          placeholder="目的地"
-          optionFilterProp="children"
-        >
-          <Option value="beijing">北京</Option>
-          <Option value="shanghai">上海</Option>
-          <Option value="guangzhou">广州</Option>
-          {/* 更多目的地选项 */}
-        </Select>,
+        <Space key="search" className="search-container">
+          <Select
+            // key="departure"
+            showSearch
+            style={{ width: "100%" }}
+            placeholder="出发地"
+            optionFilterProp="children"
+          >
+            <Option value="beijing">北京</Option>
+            <Option value="shanghai">上海</Option>
+            <Option value="guangzhou">广州</Option>
+            {/* 更多出发地选项 */}
+          </Select>
+
+          <Select
+            // key="destination"
+            showSearch
+            style={{ width: "100%" }}
+            placeholder="目的地"
+            optionFilterProp="children"
+          >
+            <Option value="beijing">北京</Option>
+            <Option value="shanghai">上海</Option>
+            <Option value="guangzhou">广州</Option>
+            {/* 更多目的地选项 */}
+          </Select>
+        </Space>,
         <Button key="1" type="primary">
           查询
         </Button>,
@@ -61,22 +64,24 @@ export default () => (
       return (
         <div className="flight-item">
           <Row>
-            <Col span={6}>
+            <Col xs={24} sm={12} md={5} lg={5} xl={5}>
               <div className="destination">{item.destination}</div>
               <div className="date">{item.date}</div>
             </Col>
-            <Col span={6}>
+            <Col xs={24} sm={12} md={5} lg={5} xl={5}>
               <div className="plane-model">{item.planeModel}</div>
               <div className="departure-time">{item.departureTime}</div>
             </Col>
-            <Col span={6}>
+            <Col xs={24} sm={12} md={5} lg={5} xl={5}>
               <div className="duration">{item.duration}</div>
             </Col>
-            <Col span={4}>
+            <Col xs={24} sm={12} md={5} lg={5} xl={5}>
               <div className="price">¥{item.price}</div>
             </Col>
-            <Col span={2}>
-              <Button type="primary">订票</Button>
+            <Col xs={24} sm={12} md={4} lg={4} xl={4}>
+              <div className="book-button">
+                <Button type="primary">订票</Button>
+              </div>
             </Col>
           </Row>
         </div>

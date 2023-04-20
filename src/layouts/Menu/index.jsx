@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Menu, Spin } from "antd";
+import { Menu, Spin, FloatButton } from "antd";
 import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { items } from "@/layouts/Menu/menuList.jsx";
@@ -10,6 +10,7 @@ import "./index.css";
 
 // 点击当前菜单跳转页面
 const Index = (props) => {
+  const {isCollapse} = props;
   const getMenuData = async () => {
     setLoading(true);
     try {
@@ -38,7 +39,8 @@ const Index = (props) => {
 
   return (
     <Fragment>
-      <div className="logo" />
+
+      <div className={"logo"+(isCollapse?" collapse":"")} />
       <Spin spinning={loading} tip="Loading...">
         <Menu
           theme="dark"
@@ -52,5 +54,5 @@ const Index = (props) => {
     </Fragment>
   );
 };
-
-export default connect()(Index);
+const mapStateToProps = (state) => state.menu;
+export default connect(mapStateToProps)(Index);

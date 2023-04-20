@@ -1,8 +1,9 @@
 import "./index.css";
 import React, { Fragment } from "react";
-import { Table } from "antd";
+import { FloatButton } from "antd";
 import { useNavigate } from "react-router-dom";
 import ProductList from "./shangcheng";
+import { QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons'
 
 const Index = () => {
   const navigate = useNavigate();
@@ -15,6 +16,11 @@ const Index = () => {
       {/* <button onClick={a}>user</button>
             <div style={{border:"1px solid red"}}><h2>这是商城在views/mall</h2></div> */}
       <ProductList />
+      <FloatButton.Group shape="circle" style={{ right: 24 }}>
+        <FloatButton icon={<QuestionCircleOutlined />} />
+        <FloatButton />
+        <FloatButton.BackTop visibilityHeight={0} />
+      </FloatButton.Group>
     </Fragment>
   );
 };

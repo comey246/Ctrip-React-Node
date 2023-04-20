@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {connect} from "react-redux";
 import {updateCollapse} from "@/redux/menu/action";
-import Action from "@/layouts/Header/action";
 import "./index.css";
 import {
     MenuFoldOutlined,
@@ -37,22 +36,28 @@ const Index = (props) => {
     const {isCollapse, updateCollapse} = props;
     const login = true
     const [top] = useState(15);
-    return (
-        <Header className="header">
-            <div>
-                <Button
-                    type="text"
-                    icon={isCollapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
-                    onClick={() => updateCollapse(!isCollapse)}
-                    className="trigger"
-                />
+    if(login) return (
+
+            <div style={{padding:"10px",display:"flex",flexDirection:"column"}}>
+                <Dropdown
+                    menu={{
+                        items,
+                    }}
+                    placement="bottomRight"
+                    arrow
+                >
+                    <Avatar style={{}}><UserOutlined/></Avatar>
+                </Dropdown>
+                <span style={{lineHeight:"18px",  fontSize: "18px"}}>user</span>
             </div>
-                <Affix offsetTop={top} className="header-search">
-                    <Search placeholder="搜索" onSearch={onSearch} enterButton />
-                </Affix>
-            <Action/>
-        </Header>
+
     );
+    else return (
+        <Space className="header-actions">
+            <Button type="link">登录</Button>
+            <Button type="primary">注册</Button>
+        </Space>
+    )
 };
 const mapStateToProps = (state) => state.menu;
 const mapDispatchToProps = {updateCollapse};

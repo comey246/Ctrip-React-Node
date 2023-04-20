@@ -1,10 +1,10 @@
 /* index.css */
 .footer {
-  background-color: #f0f2f5;
+  /*background-color: #f0f2f5;*/
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  /*padding: 16px;*/
 }
 
 .footer-item {
@@ -14,4 +14,8 @@
 
 .footer-item:hover {
   color: #1890ff;
+}
+.footer-item a,a:link,a:visited,a:hover,a:active{
+  text-decoration: none;
+  color:inherit;
 }

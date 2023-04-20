@@ -18,54 +18,10 @@ const flightsData = [
     duration: "2h 30m",
     price: 1200,
   },
-  {
-    id: 1,
-    destination: "上海",
-    date: "2023-04-25",
-    planeModel: "波音787",
-    departureTime: "08:30",
-    duration: "2h 30m",
-    price: 1200,
-  },
-  {
-    id: 1,
-    destination: "上海",
-    date: "2023-04-25",
-    planeModel: "波音787",
-    departureTime: "08:30",
-    duration: "2h 30m",
-    price: 1200,
-  },
-  {
-    id: 1,
-    destination: "上海",
-    date: "2023-04-25",
-    planeModel: "波音787",
-    departureTime: "08:30",
-    duration: "2h 30m",
-    price: 1200,
-  },
-  {
-    id: 1,
-    destination: "上海",
-    date: "2023-04-25",
-    planeModel: "波音787",
-    departureTime: "08:30",
-    duration: "2h 30m",
-    price: 1200,
-  },
-  {
-    id: 1,
-    destination: "上海",
-    date: "2023-04-25",
-    planeModel: "波音787",
-    departureTime: "08:30",
-    duration: "2h 30m",
-    price: 1200,
-  },
+  // 更多航班数据...
 ];
 
-const FlightList = () => (
+export default () => (
   <ProList
     rowKey="id"
     headerTitle="航班列表"
@@ -128,4 +84,3 @@ const FlightList = () => (
     }}
   />
 );
-export default FlightList;

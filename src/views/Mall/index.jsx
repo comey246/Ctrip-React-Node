@@ -16,7 +16,7 @@ const Index = () => {
     <Fragment>
       {/* <button onClick={a}>user</button>
             <div style={{border:"1px solid red"}}><h2>这是商城在views/mall</h2></div> */}
-      {/* <ProductList /> */}
+      <ProductList />
       <FlightList />
       <FloatButton.Group shape="circle" style={{ right: 24 }}>
         <FloatButton icon={<QuestionCircleOutlined />} />

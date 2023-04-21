@@ -3,7 +3,7 @@ import produce from "immer";
 
 const globalState = {
     token: "",
-	userInfo: ""
+	username:""
 }
 
 const global = (state = globalState,action) => 
@@ -12,6 +12,9 @@ const global = (state = globalState,action) =>
             case type.SET_TOKEN:
                 draftState.token = action.token;
 				break;
+            case type.SET_USERNAME:
+                draftState.username = action.username;
+                break;
             default:
                 return draftState;
         }

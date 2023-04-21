@@ -2,7 +2,6 @@ import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
 import Layouts from "@/layouts/index.jsx";
 
-
 // * 导入所有router
 const metaRouters = import.meta.globEager("./modules/*.jsx");
 // * 处理路由
@@ -12,11 +11,10 @@ Object.keys(metaRouters).forEach(item => {
 		routerArray.push(...metaRouters[item][key]);
 	});
 });
-console.log(routerArray)
 export const rootRouter = [
 	{
 		path: "/",
-		element: <Navigate to="/login" />
+		element: <Navigate to="/home" />
 	},
 	{
 		path: "/login",
@@ -28,17 +26,17 @@ export const rootRouter = [
 		}
 	},
 	{
+		path:"/home",
 		element: <Layouts />,
 		meta: {
-			requiresAuth: true,
+			requiresAuth: false,
 			title: "主页",
 			key: "home"
 		},
-		children: [
+		children:[
 			...routerArray
 		]
 	},
-	// ...routerArray,
 	{
 		path: "*",
 		element: <Navigate to="/login" />

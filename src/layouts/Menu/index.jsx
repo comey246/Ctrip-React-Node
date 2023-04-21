@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState,useEffect } from "react";
 import { Menu, Spin, FloatButton } from "antd";
 import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -10,7 +10,12 @@ import "./index.css";
 
 // 点击当前菜单跳转页面
 const Index = (props) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const {isCollapse} = props;
+  const [loading, setLoading] = useState(false);
+  const [selectedKeys, setSelectedKeys] = useState([location.pathname]);
+
   const getMenuData = async () => {
     setLoading(true);
     try {
@@ -27,8 +32,11 @@ const Index = (props) => {
       setLoading(false);
     }
   };
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    setSelectedKeys([location.pathname]);
+  }, [location]);
   const selectMenu = (key) => {
     console.log(key);
     navigate(key.key);
@@ -39,12 +47,12 @@ const Index = (props) => {
 
   return (
     <Fragment>
-
       <div className={"logo"+(isCollapse?" collapse":"")} />
       <Spin spinning={loading} tip="Loading...">
         <Menu
           theme="dark"
           mode="inline"
+          selectedKeys={selectedKeys}
           defaultSelectedKeys={["1"]}
           defaultOpenKeys={["sub1"]}
           items={items}

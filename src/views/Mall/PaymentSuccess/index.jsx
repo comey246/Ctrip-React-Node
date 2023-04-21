@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import "font-awesome/css/font-awesome.min.css";
+// import "font-awesome/css/font-awesome.min.css";
 const PaymentSuccess = () => {
   const flightInfo = {
     flightNumber: "CA1234",

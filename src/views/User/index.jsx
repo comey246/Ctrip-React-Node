@@ -7,9 +7,7 @@ import LoginForm from '@/views/Login/LoginForm'
 export default function Index() {
   return (
     <Fragment>
-        <div>
         <Outlet></Outlet>
-        </div>
     </Fragment>
     )
 }

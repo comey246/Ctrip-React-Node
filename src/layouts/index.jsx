@@ -1,12 +1,12 @@
 import React, {Fragment, useState} from "react";
 import {Outlet} from "react-router-dom";
-import {updateCollapse} from "@/redux/menu/action";
+import {setMobile, updateCollapse} from "@/redux/menu/action";
 import {connect} from "react-redux";
 import {Layout, Space, theme,Affix} from "antd";
 import LayoutMenu from "./Menu";
 import LayoutFooter from "./Footer";
 import LayoutHeader from "./Header";
-import "./index.css";
+import "./index.less";
 
 const {Header, Footer, Sider, Content} = Layout;
 
@@ -14,22 +14,22 @@ const Index = (props) => {
     const {
         token: {colorBgContainer},
     } = theme.useToken();
-    const {isCollapse, updateCollapse} = props;
+    const {isCollapse,isMobile, updateCollapse,setMobile} = props;
     const [top] = useState(0);
     return (
         <Fragment>
             <Layout
-                // style={{ minHeight: "100%" }}
+                style={{ minHeight: "100%" }}
             >
                 <Sider
-                    // className="menu" // Add the menu class here
                     trigger={null}
-                    breakpoint="xs"
+                    breakpoint="md"
                     onBreakpoint={(broken) => {
                         updateCollapse(broken);
+                        setMobile(broken);
                     }}
-                    collapsed={isCollapse}
-                    collapsedWidth="60"
+                    collapsed={isMobile?true:isCollapse}
+                    collapsedWidth={isMobile?isCollapse?0:60:60}
                 >
                     <Affix offsetTop={top}>
                     <LayoutMenu/>
@@ -37,22 +37,12 @@ const Index = (props) => {
                 </Sider>
                 <Layout
                 >
-                    <Header
-                        // className="fixed-header"
-                        style={{
-                            padding: 0,
-                            background: colorBgContainer,
-                        }}
-                    >
+                    <div>
                         <Affix offsetTop={top}>
                         <LayoutHeader/>
                     </Affix>
-                    </Header>
-                        {/*<div style={{*/}
-                        {/*    height:"5px",*/}
-                        {/*}}></div>*/}
+                    </div>
                     <Content
-                        // className="custom-content"
                         style={{
                             margin: '24px 16px',
                             padding: 24,
@@ -76,5 +66,5 @@ const Index = (props) => {
 };
 
 const mapStateToProps = (state) => state.menu;
-const mapDispatchToProps = {updateCollapse};
+const mapDispatchToProps = {updateCollapse,setMobile};
 export default connect(mapStateToProps, mapDispatchToProps)(Index);

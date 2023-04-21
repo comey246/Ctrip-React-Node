@@ -12,7 +12,7 @@ import "./index.css";
 const Index = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {isCollapse} = props;
+  const {isCollapse,isMobile} = props;
   const [loading, setLoading] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState([location.pathname]);
 
@@ -47,17 +47,17 @@ const Index = (props) => {
 
   return (
     <Fragment>
-      <div className={"logo"+(isCollapse?" collapse":"")} />
+      <div className={"logo"+(isMobile?" collapse":isCollapse?" collapse":"")} />
       <Spin spinning={loading} tip="Loading...">
         <Menu
           theme="dark"
           mode="inline"
           selectedKeys={selectedKeys}
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
+          defaultSelectedKeys={["/home/mall/index"]}
           items={items}
           onClick={selectMenu}
         />
+
       </Spin>
     </Fragment>
   );

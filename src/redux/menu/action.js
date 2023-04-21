@@ -5,7 +5,10 @@ export const updateCollapse = (isCollapse) => ({
 	type: type.UPDATE_COLLAPSE,
 	isCollapse
 });
-
+export const setMobile = (isMobile) => ({
+	type: type.SET_MOBILE,
+	isMobile
+});
 export const setMenuList = (menuList) => ({
 	type: types.SET_MENU_LIST,
 	menuList

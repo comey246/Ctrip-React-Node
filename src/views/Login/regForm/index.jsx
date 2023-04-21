@@ -20,7 +20,7 @@ const regForm = (props) => {
       const { username, password } = regForm;
       setLoading(true);
       const md5Password = md5(password);
-      const data = await regPost({ username, password: md5Password });
+      const data = await regPost({ ...regForm, password: md5Password });
       message.success("注册成功！");
     } finally {
       setLoading(false);

@@ -24,7 +24,6 @@ export default function index() {
           <div className="login-left">
             <img src={loginLeft} alt="login" />
           </div>
-          1
           <div className="login-form">
             <div className="login-logo">
               <span

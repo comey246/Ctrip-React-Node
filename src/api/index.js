@@ -29,8 +29,8 @@ class RequestHttp {
 				axiosCanceler.addPending(config);
 				// * 如果当前请求不需要显示 loading,在api服务中通过指定的第三个参数: { headers: { noLoading: true } }来控制不显示loading，参见loginApi
 				// config.headers.noLoading || showFullScreenLoading();
-				const token = store.getState().global.token;
-				return { ...config, headers: { ...config.headers, "x-access-token": token } };
+				const {token,username} = store.getState().global;
+				return { ...config, headers: { ...config.headers, "x-access-token": token,"username": username } };
 			},
 			(error) => {
 				return Promise.reject(error);

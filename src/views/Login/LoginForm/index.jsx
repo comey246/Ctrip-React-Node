@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { setToken } from "@/redux/global/action.js";
+import { setToken,setUsername } from "@/redux/global/action.js";
 import { setMenuList } from "@/redux/menu/action.js";
 import { loginPost, publickKeyGet } from "@/api/login.js";
 import { encodePassword } from "@/utils/util.js";
@@ -10,7 +10,7 @@ import { Button, Checkbox, Form, Input, message } from "antd";
 
 const LoginForm = (props) => {
   const navigate = useNavigate();
-  const { setToken } = props;
+  const { setToken,setUsername } = props;
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const warning = (massage) => {
@@ -28,7 +28,8 @@ const LoginForm = (props) => {
       const encryptedBase64 = encodePassword(publicKeyPem, password);
       const { data } = await loginPost({ username, password: encryptedBase64 });
       setToken(data?.access_token);
-      navigate("/mall");
+      setUsername(data?.username);
+      navigate("/home/mall");
     } finally {
       setLoading(false);
     }
@@ -111,5 +112,5 @@ const LoginForm = (props) => {
   );
 };
 
-const mapDispatchToProps = { setToken, setMenuList };
+const mapDispatchToProps = { setToken, setMenuList,setUsername };
 export default connect(null, mapDispatchToProps)(LoginForm);

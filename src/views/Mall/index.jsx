@@ -8,6 +8,7 @@ import TravelPage from "./front";
 import FlightList from "./details";
 import TicketBooking from "./order";
 import PaymentPage from "./pay";
+import PaymentSuccess from "./PaymentSuccess";
 const Index = () => {
   const navigate = useNavigate();
   const a = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <FlightList />
       <TicketBooking />
       <PaymentPage />
+      <PaymentSuccess />
       <FloatButton.Group shape="circle" style={{ right: 24 }}>
         <FloatButton icon={<QuestionCircleOutlined />} />
         <FloatButton />

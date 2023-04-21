@@ -36,8 +36,6 @@ const Index = (props) => {
                     </Affix>
                 </Sider>
                 <Layout
-                    // className="site-layout"
-                    // style={{transition: 'margin-left 0.2s'}}
                 >
                     <Header
                         // className="fixed-header"
@@ -46,12 +44,17 @@ const Index = (props) => {
                             background: colorBgContainer,
                         }}
                     >
+                        <Affix offsetTop={top}>
                         <LayoutHeader/>
+                    </Affix>
                     </Header>
+                        {/*<div style={{*/}
+                        {/*    height:"5px",*/}
+                        {/*}}></div>*/}
                     <Content
                         // className="custom-content"
                         style={{
-                            // margin: '24px 16px',
+                            margin: '24px 16px',
                             padding: 24,
                             minHeight: 280,
                             background: colorBgContainer,

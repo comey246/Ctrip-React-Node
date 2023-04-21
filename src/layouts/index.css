@@ -22,7 +22,9 @@
   padding: 12px; /* 调整Footer部分的内边距 */
   /* background: colorBgContainer; */
 }
-
+.ant-layout-header{
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 /* index.css */
 .fixed-header {
   /* position: fixed;
@@ -30,10 +32,15 @@
   left: 0;
   right: 0; */
   padding: 0;
+  box-shadow:0 2px 5px rgba(132, 132, 132, 0.3);
   /* z-index: 100; */
   /* background: colorBgContainer; */
 }
 
+.ant-layout-content:before{
+  height: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 .fixed-footer {
   position: fixed;
   bottom: 0;

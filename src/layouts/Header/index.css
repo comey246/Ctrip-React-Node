@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:0 ;
+  padding:0;
 }
 
 .trigger {
@@ -17,6 +17,11 @@
   max-width: 600px;
   min-width: 200px;
 }
+.header-search .ant-btn-primary {
+  width: 50px;
+
+}
+
 .header-actions button {
   font-weight: bold;
 }

@@ -47,9 +47,10 @@ const Index = (props) => {
                     className="trigger"
                 />
             </div>
-                <Affix offsetTop={top} className="header-search">
+            <div className="header-search">
+                    <div style={{height:"30px"}}>                </div>
                     <Search placeholder="搜索" onSearch={onSearch} enterButton />
-                </Affix>
+            </div>
             <Action/>
         </Header>
     );

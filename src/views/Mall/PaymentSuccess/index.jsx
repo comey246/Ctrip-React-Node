@@ -29,7 +29,7 @@ const PaymentSuccess = () => {
         <button className="btn">打印</button>
       </div>
       <div className="order-details">
-        <h3>订单详情</h3>
+        <p className="orderdetail">订单详情</p>
         <div className="order-info">
           <div className="left">
             <p>航班号：{flightInfo.flightNumber}</p>

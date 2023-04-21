@@ -1,12 +1,11 @@
-import lazyLoad from "@/routers/lazyLoad.jsx";
-import {Navigate} from "react-router-dom";
+import lazyLoad from "@/routers/utils/lazyLoad.jsx";
 // 首页模块
+import {lazy} from "react";
 
 const adminRouter = [
 	{
-		path: "admin",
-		element: lazyLoad("../views/Admin/index"),
-		// element:<Navigate to="/admin/order" />,
+		path: "/home/admin",
+		element: lazyLoad(lazy(()=>import("@/views/Admin/index"))),
 		meta: {
 			requiresAuth: true,
 			title: "管理员",
@@ -14,8 +13,8 @@ const adminRouter = [
 		},
 		children:[
 			{
-				path: "order",
-				element: lazyLoad("../views/Admin/Order/index"),
+				path: "/home/admin/order",
+				element: lazyLoad(lazy(()=>import("@/views/Admin/Order/index"))),
 				meta: {
 					requiresAuth: true,
 					title: "订单管理",
@@ -23,8 +22,8 @@ const adminRouter = [
 				}
 			},
 			{
-				path: "user",
-				element: lazyLoad("../views/Admin/User/index"),
+				path: "/home/admin/user",
+				element: lazyLoad(lazy(()=>import("@/views/Admin/User/index"))),
 				meta: {
 					requiresAuth: true,
 					title: "用户管理",

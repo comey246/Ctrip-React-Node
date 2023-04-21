@@ -1,12 +1,10 @@
-import lazyLoad from "@/routers/lazyLoad.jsx";
-import {Navigate} from "react-router-dom";
+import lazyLoad from "@/routers/utils/lazyLoad.jsx";
 // 首页模块
-
+import {lazy} from "react";
 const userRouter = [
 	{
-		path: "user",
-		element: lazyLoad("../views/User/index"),
-		// element:<Navigate to="/user/order" />,
+		path: "/home/user",
+		element:lazyLoad(lazy(()=>import("@/views/User/index"))),
 		meta: {
 			requiresAuth: true,
 			title: "用户",
@@ -14,8 +12,8 @@ const userRouter = [
 		},
 		children:[
 			{
-				path: "order",
-				element: lazyLoad("../views/User/Order/index"),
+				path: "/home/user/order",
+				element: lazyLoad(lazy(()=>import("@/views/User/Order/index"))),
 				meta: {
 					requiresAuth: true,
 					title: "订单",

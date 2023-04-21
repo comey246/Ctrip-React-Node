@@ -36,6 +36,14 @@ const TicketBooking = () => {
         </div>
       </div>
       <form onSubmit={handleSubmit} className="booking-form">
+        <label htmlFor="idNumber">姓名：</label>
+        <input
+          type="text"
+          id="idNumber"
+          value={idNumber}
+          onChange={(e) => setIdNumber(e.target.value)}
+          required
+        />
         <label htmlFor="phone">手机号码：</label>
         <input
           type="tel"

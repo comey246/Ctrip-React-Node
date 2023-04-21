@@ -1,0 +1,87 @@
+.payment-page {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.order-left,
+.order-right {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.method {
+  margin-bottom: 0.5rem;
+}
+
+input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.payment-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-payment {
+  color: white;
+  background-color: #007bff;
+  border: none;
+}
+
+.confirm-payment:hover {
+  background-color: #0056b3;
+}
+
+.total-price {
+  color: red;
+  font-size: 1.2rem;
+  font-family: "Georgia", serif;
+}
+@media (min-width: 768px) {
+  .order-info {
+    flex-direction: row;
+
+    justify-content: space-between;
+  }
+  .payment-methods {
+    flex-direction: column;
+  }
+
+  .order-left,
+  .order-right {
+    width: 50%;
+  }
+}

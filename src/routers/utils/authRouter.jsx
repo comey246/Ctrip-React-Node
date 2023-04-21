@@ -13,6 +13,7 @@ const axiosCanceler = new AxiosCanceler();
 const AuthRouter = (props) => {
 	const { pathname } = useLocation();
 	const route = searchRoute(pathname, rootRouter);
+	if(route === {}) return <Navigate to="/login" replace />
 	// * 在跳转路由之前，清除所有的请求
 	axiosCanceler.removeAllPending();
 	// * 判断当前路由是否需要访问权限(不需要权限直接放行)

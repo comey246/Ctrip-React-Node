@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {connect} from "react-redux";
 import {updateCollapse} from "@/redux/menu/action";
-import "./index.css";
+import "./index.less";
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
@@ -9,7 +9,7 @@ import {
     UserOutlined,
     ShoppingCartOutlined,
 } from "@ant-design/icons";
-import {Layout, Input, Button, Space, Affix, Dropdown,Avatar} from "antd";
+import {Layout, Input, Button, Space, Affix, Dropdown, Avatar} from "antd";
 
 const {Header} = Layout;
 const {Search} = Input;
@@ -36,21 +36,19 @@ const Index = (props) => {
     const {isCollapse, updateCollapse} = props;
     const login = true
     const [top] = useState(15);
-    if(login) return (
-
-            <div style={{padding:"10px",display:"flex",flexDirection:"column"}}>
-                <Dropdown
-                    menu={{
-                        items,
-                    }}
-                    placement="bottomRight"
-                    arrow
-                >
-                    <Avatar style={{}}><UserOutlined/></Avatar>
-                </Dropdown>
-                <span style={{lineHeight:"18px",  fontSize: "18px"}}>user</span>
+    if (login) return (
+        <Dropdown
+            menu={{
+                items,
+            }}
+            placement="bottomRight"
+            arrow
+        >
+            <div className="avatar">
+                <Avatar><UserOutlined/></Avatar>
+                <span className="name">user</span>
             </div>
-
+        </Dropdown>
     );
     else return (
         <Space className="header-actions">

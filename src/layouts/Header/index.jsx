@@ -2,56 +2,65 @@ import React, {useState} from "react";
 import {connect} from "react-redux";
 import {updateCollapse} from "@/redux/menu/action";
 import Action from "@/layouts/Header/action";
-import "./index.css";
+import "./index.less";
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     SearchOutlined,
     UserOutlined,
     ShoppingCartOutlined,
+    QuestionCircleOutlined, SyncOutlined
 } from "@ant-design/icons";
-import {Layout, Input, Button, Space, Affix, Dropdown,Avatar} from "antd";
+import {Layout, Input, Button, Select, Space, FloatButton} from "antd";
 
 const {Header} = Layout;
 const {Search} = Input;
+
+const handleChange = (value) => {
+    console.log(`selected ${value}`);
+};
 const onSearch = (value) => console.log(value);
-const items = [
-    {
-        key: '1',
-        label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                购物车
-            </a>
-        ),
-    },
-    {
-        key: '2',
-        label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                订单信息
-            </a>
-        ),
-    }
-];
+const selectBefore = (<Select defaultValue="hotel"
+                              options={[
+                                  {
+                                      value: 'hotel',
+                                      label: '酒店',
+                                  },
+                                  {
+                                      value: 'plane',
+                                      label: '机票',
+                                  },
+                                  {
+                                      value: 'ticke',
+                                      label: '门票',
+                                  },
+                                  {
+                                      value: 'gpt',
+                                      label: 'GPT',
+                                  },
+                              ]}
+/>)
 const Index = (props) => {
     const {isCollapse, updateCollapse} = props;
-    const login = true
-    const [top] = useState(15);
     return (
         <Header className="header">
-            <div>
-                <Button
-                    type="text"
+            {/*<Button*/}
+            {/*    type="text"*/}
+            {/*    icon={isCollapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}*/}
+            {/*    onClick={() => updateCollapse(!isCollapse)}*/}
+            {/*    className="trigger"*/}
+            {/*/>*/}
+            <div className="search">
+                <Search addonBefore={selectBefore} placeholder="搜索酒店/机票/门票" size={"large"} onSearch={onSearch} enterButton/>
+            <Action/>
+            </div>
+            <FloatButton.Group shape="circle" style={{ left: 10 }}>
+                <FloatButton
                     icon={isCollapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
                     onClick={() => updateCollapse(!isCollapse)}
-                    className="trigger"
                 />
-            </div>
-            <div className="header-search">
-                    <div style={{height:"30px"}}>                </div>
-                    <Search placeholder="搜索" onSearch={onSearch} enterButton />
-            </div>
-            <Action/>
+                <FloatButton.BackTop visibilityHeight={0} />
+            </FloatButton.Group>
         </Header>
     );
 };

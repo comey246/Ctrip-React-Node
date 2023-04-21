@@ -1,0 +1,30 @@
+/* index.less */
+.avatar{
+  padding-left:20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .name{
+    padding-left: 5px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 18px
+  }
+}
+@media screen and (max-width: 767px){
+  .avatar{
+    padding-left:10px;
+    flex-direction: column;
+    .name{
+      padding-left: 0;
+    }
+  }
+}
+.header-actions button {
+  font-weight: bold;
+}
+
+.header-actions .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}

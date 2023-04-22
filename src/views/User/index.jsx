@@ -8,9 +8,7 @@ import Userorder from "./Order";
 export default function Index() {
   return (
     <Fragment>
-      <Outlet>
-        <Userorder />
-      </Outlet>
+      <Outlet></Outlet>
     </Fragment>
   );
 }

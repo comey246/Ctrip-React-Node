@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { setToken } from "@/redux/global/action.js";
 import "./index.css";
 import { UserOutlined } from "@ant-design/icons";
+import Info from "@/views/User/Order/Info";
 import {
   Button,
   Checkbox,
@@ -68,8 +69,7 @@ const data = [
     数量: 3,
     地址: "New York No. 1 Lake Park",
     金额: "3*price",
-    description:
-      "出发地,xxx,目的地:xxx,航班号:xxx,起飞时间:xxx,到达时间:xxx,用时:xxx,座位号:xxx",
+    description: <Info />,
   },
 ];
 

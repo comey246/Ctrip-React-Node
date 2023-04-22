@@ -46,7 +46,6 @@ const Index = (props) => {
       if (!data) return;
       setMenu(menuAarray(data));
       setMenuList(data);
-
       // setMenuList(deepLoopFloat(data));
       // // 存储处理过后的所有面包屑导航栏到 redux 中
       // setBreadcrumbList(findAllBreadcrumb(data));
@@ -62,22 +61,21 @@ const Index = (props) => {
   useEffect(() => {
     setSelectedKeys([location.pathname]);
   }, [location]);
-
   useEffect(() => {
     getMenuData();
   }, []);
-
   const selectMenu = (key) => {
     console.log(key);
     navigate(key.key);
     // const route = searchRoute(key, props.menuList);
     // if (route.isLink) window.open(route.isLink, "_blank");
     // navigate(key);
+    // (isMobile?" collapse":isCollapse?" collapse":"")
   };
 
   return (
     <Fragment>
-      <div className={"logo"+(isMobile?" collapse":isCollapse?" collapse":"")} />
+      <div className={"logo" + (isMobile?" collapse":isCollapse?" collapse":"")} />
       <Spin spinning={loading} tip="Loading...">
         <Menu
           theme="dark"
@@ -88,10 +86,9 @@ const Index = (props) => {
           onClick={selectMenu}
         />
       </Spin>
-      <button onClick={getMenuData}>1</button>
     </Fragment>
   );
 };
-const mapStateToProps = (state) => (state.menu, state.global);
+const mapStateToProps = (state) => (state.menu);
 const mapDispatchToProps = {setMenuList};
 export default connect(mapStateToProps,mapDispatchToProps)(Index);

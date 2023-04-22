@@ -14,7 +14,7 @@ Object.keys(metaRouters).forEach(item => {
 export const rootRouter = [
 	{
 		path: "/",
-		element: <Navigate to="/home" />
+		element: <Navigate to="/home/mall/index" />
 	},
 	{
 		path: "/login",
@@ -22,7 +22,7 @@ export const rootRouter = [
 		meta: {
 			requiresAuth: false,
 			title: "登录页",
-			key: "Login"
+			key: "login"
 		}
 	},
 	{

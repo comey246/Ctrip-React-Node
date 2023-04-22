@@ -19,7 +19,7 @@ export const regPost = (params) => {
 	return http.post(`/register`, params, { headers: { noLoading: true } }); // 控制当前请求不显示 loading
 }
 export const publickKeyGet = (params) => {
-	return http.get(`/publicKey/`,params);
+	return http.get(`/publicKey`,params);
 
 };
 // * 获取按钮权限
@@ -28,6 +28,6 @@ export const getAuthorButtons = () => {
 };
 
 // * 获取菜单列表
-export const menuListGet = () => {
+export const getMenuList = () => {
 	return http.get( `/menu/list`);
 };

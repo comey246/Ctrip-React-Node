@@ -10,6 +10,6 @@ export const setMobile = (isMobile) => ({
 	isMobile
 });
 export const setMenuList = (menuList) => ({
-	type: types.SET_MENU_LIST,
+	type: type.SET_MENU_LIST,
 	menuList
 });

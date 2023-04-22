@@ -2,7 +2,7 @@ import {UserOutlined, VideoCameraOutlined} from "@ant-design/icons";
 
 export const items = [
     {
-        key: '/mall',
+        key: '/home/mall',
         icon: <UserOutlined/>,
         label: '商城',
         children: [

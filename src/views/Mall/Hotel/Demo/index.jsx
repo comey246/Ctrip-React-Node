@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import produce from "immer";
 import { getFlightList } from "@/api/mall.js";
-import Demo from "@/views/Mall/Hotel/Demo";
+
 import { Button, Space, Tag, Row, Col, Select, Input, DatePicker } from "antd";
 import { SwapOutlined, RightOutlined } from "@ant-design/icons";
 import request from "umi-request";

@@ -5,10 +5,7 @@ import Adminuser from "./User";
 export default function index() {
   return (
     <Fragment>
-      <Outlet>
-        <Adminorder />
-        <Adminuser />
-      </Outlet>
+      <Outlet></Outlet>
     </Fragment>
   );
 }

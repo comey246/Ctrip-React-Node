@@ -49,7 +49,7 @@ class RequestHttp {
 				axiosCanceler.removePending(config);
 				// tryHideFullScreenLoading();
 				// * 登录失效（code == 599）
-				if (data.code == ResultEnum.OVERDUE) {
+				if (data.code === ResultEnum.OVERDUE) {
 					store.dispatch(setToken(""));
 					message.error(data.message);
 					window.location.hash = "/Login";

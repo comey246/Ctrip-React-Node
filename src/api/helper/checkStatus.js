@@ -1,4 +1,5 @@
 import { message } from "antd";
+import {store} from "@/redux/index.js";
 
 /**
  * @description: 校验网络请求状态码
@@ -12,6 +13,9 @@ export const checkStatus = (status) => {
 			break;
 		case 401:
 			message.error("登录失效！请您重新登录");
+			store.dispatch(setToken(""));
+			message.error(data.message);
+			window.location.hash = "/Login";
 			break;
 		case 403:
 			message.error("当前账号无权限访问！");

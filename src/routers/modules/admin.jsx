@@ -7,7 +7,7 @@ const adminRouter = [
 		path: "/home/admin",
 		element: lazyLoad(lazy(()=>import("@/views/Admin/index"))),
 		meta: {
-			requiresAuth: true,
+			requiresAuth: "admin",
 			title: "管理员",
 			key: "admin"
 		},
@@ -16,7 +16,7 @@ const adminRouter = [
 				path: "/home/admin/order",
 				element: lazyLoad(lazy(()=>import("@/views/Admin/Order/index"))),
 				meta: {
-					requiresAuth: true,
+					requiresAuth: "admin",
 					title: "订单管理",
 					key: "adminOrder"
 				}
@@ -25,7 +25,7 @@ const adminRouter = [
 				path: "/home/admin/user",
 				element: lazyLoad(lazy(()=>import("@/views/Admin/User/index"))),
 				meta: {
-					requiresAuth: true,
+					requiresAuth: "admin",
 					title: "用户管理",
 					key: "adminUser"
 				}

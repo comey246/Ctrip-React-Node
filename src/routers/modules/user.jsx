@@ -6,7 +6,7 @@ const userRouter = [
 		path: "/home/user",
 		element:lazyLoad(lazy(()=>import("@/views/User/index"))),
 		meta: {
-			requiresAuth: true,
+			requiresAuth: "user",
 			title: "用户",
 			key: "user"
 		},
@@ -15,7 +15,7 @@ const userRouter = [
 				path: "/home/user/order",
 				element: lazyLoad(lazy(()=>import("@/views/User/Order/index"))),
 				meta: {
-					requiresAuth: true,
+					requiresAuth: "user",
 					title: "订单",
 					key: "userOrder"
 				}

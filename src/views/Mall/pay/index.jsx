@@ -57,8 +57,8 @@ const PaymentPage = () => {
         </div>
       </div>
       <div className="payment-actions">
-        <button className="confirm-payment">取消支付</button>
-        <button className="cancel-payment">确认支付</button>
+        <button className="payment">取消支付</button>
+        <button className="payment">确认支付</button>
       </div>
     </div>
   );

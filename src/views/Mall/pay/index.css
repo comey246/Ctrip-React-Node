@@ -55,13 +55,14 @@ button {
   transition: background-color 0.3s;
 }
 
-.confirm-payment {
+.payment {
   color: white;
   background-color: #007bff;
   border: none;
+  margin: 1%;
 }
 
-.confirm-payment:hover {
+.payment:hover {
   background-color: #0056b3;
 }
 

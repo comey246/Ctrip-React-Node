@@ -5,11 +5,13 @@ import reduxThunk from "redux-thunk";
 import reduxPromise from "redux-promise";
 import global from "@/redux/global/reducer.js";
 import menu from "@/redux/menu/reducer.js";
+import mall from "@/redux/mall/reducer.js";
 
 // 创建reducer(拆分reducer)
 const reducer = combineReducers({
 	global,
-	menu
+	menu,
+	mall
 });
 
 // redux 持久化配置

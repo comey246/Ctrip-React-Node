@@ -1,15 +1,18 @@
 import React, {useEffect, useState,Fragment} from "react";
 import produce from "immer";
 import {getFlightList} from "@/api/mall.js";
+import { connect } from "react-redux";
+import {setFlightList,setFlightInfo} from "@/redux/mall/action.js"
 import {ProList} from "@ant-design/pro-components";
 import {Button, Space, Tag, Row, Col, Select, Input, DatePicker} from "antd";
 import request from "umi-request";
 import "./index.css";
+import {setToken, setUsername} from "@/redux/global/action.js";
+import {setMenuList} from "@/redux/menu/action.js";
 
 const {Option} = Select;
 const {Search} = Input;
 
-// 假设我们有以下类型的数据
 
 const place = [{label: "北京", value: "BJS"}, {label: "上海", value: "SHA"}, {
     label: "广州",
@@ -17,7 +20,7 @@ const place = [{label: "北京", value: "BJS"}, {label: "上海", value: "SHA"},
 }, {label: "成都", value: "CTU"}, {label: "杭州", value: "HGH"}]
 
 const Index = (props) => {
-    const [flightsData,setFlightsData] = useState([])
+    const {setFlightList,setFlightInfo,flightInfo} = props
     const [flight, setFlight] = useState({
         origin: '',
         destination: '',
@@ -25,7 +28,6 @@ const Index = (props) => {
     });
     const onChange = (change) => {
         return (value) => {
-            console.log(typeof value)
             setFlight(
                 produce(flight, (draft) => {
                     draft[change] = value;
@@ -40,11 +42,10 @@ const Index = (props) => {
     }
     const getFlight = async () => {
         const resList = await getFlightList(flight);
-        const list = resList.data?.flightList
-        setFlightsData(
-            produce(list, (draft) => {
-                draft = list;
-            }))
+        const list = resList.data?.flightList;
+        setFlightList(list);
+        setFlightInfo(flight);
+        console.log(flight)
     }
     return (
         <Fragment>
@@ -67,11 +68,14 @@ const Index = (props) => {
                 >
                 </Select>
                 <DatePicker onChange={onSelect}/>
-            </Space>,
             <Button key="1" type="primary" onClick={getFlight}>
                 查询
-            </Button>,
+            </Button>
+            </Space>
+            <h2>出发地：{flightInfo.origin}目的地：{flightInfo.destination}日期：{flightInfo.date}</h2>
         </Fragment>
     );
 }
-export default Index;
+const mapStateToProps = (state) =>(state.mall)
+const mapDispatchToProps = { setFlightList,setFlightInfo};
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

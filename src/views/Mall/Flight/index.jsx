@@ -11,7 +11,6 @@ const {Search} = Input;
 
 // 假设我们有以下类型的数据
 
-
 const place = [{label: "北京", value: "BJS"}, {label: "上海", value: "SHA"}, {
     label: "广州",
     value: "CAN"

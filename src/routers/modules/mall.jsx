@@ -31,8 +31,8 @@ const mallRouter = [
 						}
 					},
 					{
-						path: "/home/mall/plane",
-						element: lazyLoad(lazy(()=>import("@/views/Mall/Plane/index.jsx"))),
+						path: "/home/mall/flight",
+						element: lazyLoad(lazy(()=>import("@/views/Mall/Flight/index.jsx"))),
 						meta: {
 							requiresAuth: false,
 							title: "机票",

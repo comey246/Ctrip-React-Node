@@ -46,7 +46,7 @@ const Index = (props) => {
       if (!data) return;
       setMenu(menuAarray(data));
       setMenuList(data);
-      console.log(menuAarray(data),'1')
+
       // setMenuList(deepLoopFloat(data));
       // // 存储处理过后的所有面包屑导航栏到 redux 中
       // setBreadcrumbList(findAllBreadcrumb(data));

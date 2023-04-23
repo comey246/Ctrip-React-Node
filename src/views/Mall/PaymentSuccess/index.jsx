@@ -1,6 +1,6 @@
 import React from "react";
-import "./index.css";
-// import "font-awesome/css/font-awesome.min.css";
+import "./index.less";
+import { Descriptions, Col, Row, Progress, Space } from "antd";
 const PaymentSuccess = () => {
   const flightInfo = {
     flightNumber: "CA1234",
@@ -20,30 +20,44 @@ const PaymentSuccess = () => {
   return (
     <div className="payment-success">
       <div className="success-icon">
-        {/* <i className="fas fa-check"></i> */}
+        <Space wrap>
+          <Progress
+            className="responsive-progress"
+            type="circle"
+            percent={100}
+          />
+        </Space>
+        <h2>提交成功</h2>
       </div>
-      <h2>提交成功</h2>
+
       <div className="success-buttons">
         <button className="btn">返回</button>
         <button className="btn">查看</button>
         <button className="btn">打印</button>
       </div>
-      <div className="order-details">
-        <p className="orderdetail">订单详情</p>
-        <div className="order-info">
-          <div className="left">
-            <p>航班号：{flightInfo.flightNumber}</p>
-            <p>起飞时间：{flightInfo.departureTime}</p>
-            <p>到达时间：{flightInfo.arrivalTime}</p>
-            <p>购买数量：{tickets}</p>
-          </div>
-          <div className="right">
-            <p>预定人姓名：{name}</p>
-            <p>手机号：{phoneNumber}</p>
-            <p>身份证号：{maskedIdNumber}</p>
-            <p className="total-price">支付金额：¥{totalPrice}</p>
-          </div>
-        </div>
+      <div className="order-info">
+        <Descriptions title="订单信息">
+          <Descriptions.Item label="航班号">
+            {flightInfo.flightNumber}
+          </Descriptions.Item>
+          <Descriptions.Item label="起飞时间">
+            {flightInfo.departureTime}
+          </Descriptions.Item>
+          <Descriptions.Item label="到达时间">
+            {flightInfo.arrivalTime}
+          </Descriptions.Item>
+          <Descriptions.Item label="购买数量">{tickets}</Descriptions.Item>
+          <Descriptions.Item label="预定人姓名">{name}</Descriptions.Item>
+          <Descriptions.Item label="预定人手机号">
+            {phoneNumber}
+          </Descriptions.Item>
+          <Descriptions.Item label="预定人身份证号">
+            {maskedIdNumber}
+          </Descriptions.Item>
+          <Descriptions.Item className="total-price" label="支付金额">
+            ¥{totalPrice}
+          </Descriptions.Item>
+        </Descriptions>
       </div>
     </div>
   );

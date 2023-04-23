@@ -23,19 +23,9 @@ const columns = [
     key: "商品名称",
   },
   {
-    title: "数量",
+    title: "订单编号",
     dataIndex: "number",
-    key: "数量",
-  },
-  {
-    title: "地址",
-    dataIndex: "address",
-    key: "地址",
-  },
-  {
-    title: "金额",
-    dataIndex: "price",
-    key: "金额",
+    key: "订单编号",
   },
   {
     title: "删除订单",
@@ -47,14 +37,10 @@ const columns = [
 const data = [
   {
     key: 1,
-    name: "John Brown",
-    number: 2,
-    address: "New York No. 1 Lake Park",
-    price: "2*price",
-    description:
-      <Info/>,
+    name: "机票",
+    number: "f51684352",
+    description: <Info />,
   },
-
 ];
 
 const Userorder = (props) => {
@@ -68,13 +54,13 @@ const Userorder = (props) => {
         columns={columns}
         expandable={{
           expandedRowRender: (record) => (
-            <p
+            <div
               style={{
                 margin: 0,
               }}
             >
               {record.description}
-            </p>
+            </div>
           ),
           rowExpandable: (record) => record.name !== "Not Expandable",
         }}

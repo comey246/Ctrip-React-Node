@@ -1,36 +1,36 @@
 //定义header下部阴影
 
-.layout{
+.layout {
   min-height: 100%;
   //这是最底部背景
-  //background: url("@/views/Login/images/login_bg.svg");
-  background: linear-gradient(90deg, #fce1ea, #fff5f7);
+  background: url("@/views/Login/images/login_bg.svg");
+  // background: linear-gradient(90deg, #fce1ea, #fff5f7);
   //background: #004085;
-  .side-layout{
+  .side-layout {
     //这是侧边栏背景
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     //menu的背景在/layout/menu/index.less里
   }
-  .right-layout{
+  .right-layout {
     //这是右边整个的背景包含头部、中间和尾部
-    background: rgba(255,255,255,0);
-    .ant-layout-header{
+    background: rgba(255, 255, 255, 0);
+    .ant-layout-header {
       //这是右边的头部背景
-      box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-      background-color: rgba(255,255,255,0);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0);
       backdrop-filter: blur(6px);
     }
 
-    .content{
+    .content {
       margin: 24px 16px;
       padding: 24px;
       min-height: 280px;
       //这是中间背景
-      background:rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
     }
-    .footer{
+    .footer {
       //这是尾部背景
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(6px);
     }
   }

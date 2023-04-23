@@ -23,19 +23,9 @@ const columns = [
     key: "商品名称",
   },
   {
-    title: "数量",
-    dataIndex: "数量",
-    key: "数量",
-  },
-  {
-    title: "地址",
-    dataIndex: "地址",
-    key: "地址",
-  },
-  {
-    title: "金额",
-    dataIndex: "金额",
-    key: "金额",
+    title: "订单编号",
+    dataIndex: "订单编号",
+    key: "订单编号",
   },
   {
     title: "删除订单",
@@ -48,27 +38,21 @@ const data = [
   {
     key: 1,
     商品名称: "John Brown",
-    数量: 2,
-    地址: "New York No. 1 Lake Park",
-    金额: "2*price",
+    订单编号: 2,
     description:
       "出发地,xxx,目的地:xxx,航班号:xxx,起飞时间:xxx,到达时间:xxx,用时:xxx,座位号:xxx",
   },
   {
     key: 2,
     商品名称: "Jim Green",
-    数量: 1,
-    地址: "New York No. 1 Lake Park",
-    金额: "1*price",
+    订单编号: 1,
     description:
       "出发地,xxx,目的地:xxx,航班号:xxx,起飞时间:xxx,到达时间:xxx,用时:xxx,座位号:xxx",
   },
   {
     key: 3,
     商品名称: "Not Expandable",
-    数量: 3,
-    地址: "New York No. 1 Lake Park",
-    金额: "3*price",
+    订单编号: s1234565789,
     description: <Info />,
   },
 ];

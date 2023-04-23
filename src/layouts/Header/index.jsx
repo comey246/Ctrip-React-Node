@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Fragment, useState} from "react";
 import {connect} from "react-redux";
 import {updateCollapse} from "@/redux/menu/action";
 import Action from "@/layouts/Header/action";
@@ -43,19 +43,22 @@ const selectBefore = (<Select defaultValue="hotel"
 const Index = (props) => {
     const {isCollapse, updateCollapse} = props;
     return (
+        <Fragment>
         <Header className="header">
             <div className="search">
                 <Search addonBefore={selectBefore} placeholder="搜索酒店/机票/门票" size={"large"} onSearch={onSearch} enterButton/>
             <Action/>
             </div>
-            <FloatButton.Group shape="circle" style={{ left: 10 }}>
-                <FloatButton
-                    icon={isCollapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
-                    onClick={() => updateCollapse(!isCollapse)}
-                />
-                <FloatButton.BackTop visibilityHeight={0} />
-            </FloatButton.Group>
         </Header>
+
+    <FloatButton.Group shape="circle" style={{ left: 10 }}>
+        <FloatButton
+            icon={isCollapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
+            onClick={() => updateCollapse(!isCollapse)}
+        />
+        <FloatButton.BackTop visibilityHeight={0} />
+    </FloatButton.Group>
+        </Fragment>
     );
 };
 const mapStateToProps = (state) => state.menu;

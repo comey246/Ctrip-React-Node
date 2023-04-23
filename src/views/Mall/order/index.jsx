@@ -52,7 +52,6 @@ const TicketBooking = () => {
           onChange={(e) => setPhone(e.target.value)}
           required
         />
-
         <label htmlFor="idNumber">身份证号：</label>
         <input
           type="text"

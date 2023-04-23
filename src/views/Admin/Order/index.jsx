@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from "@/redux/global/action.js";
-import "./index.css";
+import "./index.less";
 import { Button, Checkbox, Form, Input, message, Table } from "antd";
 import Info from "@/views/Admin/Order/Info";
 const columns = [

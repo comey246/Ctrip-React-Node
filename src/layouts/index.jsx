@@ -2,11 +2,12 @@ import React, {Fragment, useState} from "react";
 import {Outlet} from "react-router-dom";
 import {setMobile, updateCollapse} from "@/redux/menu/action";
 import {connect} from "react-redux";
-import {Layout, Space, theme,Affix} from "antd";
+import {Layout, Space, theme, Affix, FloatButton} from "antd";
 import LayoutMenu from "./Menu";
 import LayoutFooter from "./Footer";
 import LayoutHeader from "./Header";
 import "./index.less";
+import {MenuFoldOutlined, MenuUnfoldOutlined} from "@ant-design/icons";
 
 const {Footer, Sider, Content} = Layout;
 
@@ -39,11 +40,9 @@ const Index = (props) => {
                 <Layout
                     className="right-layout"
                 >
-                    <div>
                         <Affix offsetTop={top}>
                         <LayoutHeader/>
                     </Affix>
-                    </div>
                     <Content
                         className="content"
                     >

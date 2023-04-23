@@ -1,6 +1,7 @@
 // TicketBooking.js
 import React, { useState } from "react";
-import "./index.css";
+import "./index.less";
+import { Descriptions, Col, Row } from "antd";
 
 const TicketBooking = () => {
   const [phone, setPhone] = useState("");
@@ -16,16 +17,28 @@ const TicketBooking = () => {
   return (
     <div className="ticket-booking">
       <h1>机票预订</h1>
+      <div className="order-info">
+        <Descriptions title="航班信息">
+          <Descriptions.Item label="航班号">CA1234</Descriptions.Item>
+
+          <Descriptions.Item label="起飞时间">
+            2023-04-22 14:00
+          </Descriptions.Item>
+
+          <Descriptions.Item label="到达时间">
+            2023-04-22 14:00
+          </Descriptions.Item>
+        </Descriptions>
+      </div>
       <div className="flight-info">
-        <h2>航班信息</h2>
-        <div className="left-info">
-          <p>航班号：CA1234</p>
-          <p>起飞时间：2023-04-22 14:00</p>
-          <p>到达时间：2023-04-22 18:00</p>
-        </div>
-        <div className="right-info">
-          <p>价格：¥1800</p>
-          <label htmlFor="tickets">购买数量：</label>
+        <p>价格：¥1800</p>
+        <div className="ticket-control">
+          <button
+            onClick={() => setTickets(tickets - 1)}
+            disabled={tickets <= 1}
+          >
+            -
+          </button>
           <input
             type="number"
             id="tickets"
@@ -33,8 +46,10 @@ const TicketBooking = () => {
             onChange={(e) => setTickets(e.target.value)}
             min="1"
           />
+          <button onClick={() => setTickets(tickets + 1)}>+</button>
         </div>
       </div>
+
       <form onSubmit={handleSubmit} className="booking-form">
         <label htmlFor="idNumber">姓名：</label>
         <input

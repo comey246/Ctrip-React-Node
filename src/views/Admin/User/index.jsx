@@ -17,7 +17,7 @@ const columns = [
     key: "订单编号",
   },
   {
-    title: "Action",
+    title: "删除用户",
     dataIndex: "",
     key: "x",
     render: () => <a>Delete</a>,

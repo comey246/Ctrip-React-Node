@@ -1,0 +1,46 @@
+/* FlightSearchBar.css */
+/* 更改背景色和添加渐变效果 */
+.search-container {
+  //background: linear-gradient(90deg, #00c6ff, #0072ff);
+
+  //background: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  .ant-col{
+    display: flex;
+    justify-content: center;
+  }
+  /* 更新按钮样式 */
+  .swap {
+    background: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    .swap-arrow {
+      margin: 0 auto;
+      color: black;
+    }
+  }
+  .search {
+    background: linear-gradient(90deg, #00c6ff, #00c6ff);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .info{
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    span{
+      width: 100px;
+    }
+  }
+  button:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+}

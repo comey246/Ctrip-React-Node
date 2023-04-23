@@ -2,3 +2,30 @@
 .ant-layout-header{
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
+.layout{
+  min-height: 100%;
+  //这是最底部背景
+  background: #fce1ea;
+  .side-layout{
+    //这是侧边栏背景
+    background: rgba(255,255,255,0.2);
+    //menu的背景在/layout/menu/index.less里
+  }
+  .right-layout{
+    //这是右边整个的背景包含头部、中间和尾部
+    background: rgba(255,255,255,0.2);
+    .content{
+      margin: 24px 16px;
+      padding: 24px;
+      min-height: 280px;
+      //这是中间背景
+      background:rgba(255,255,255,0.5);
+      backdrop-filter: blur(6px);
+    }
+    .footer{
+      //这是尾部背景
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(6px);
+    }
+  }
+}

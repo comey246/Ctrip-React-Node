@@ -44,12 +44,6 @@ const Index = (props) => {
     const {isCollapse, updateCollapse} = props;
     return (
         <Header className="header">
-            {/*<Button*/}
-            {/*    type="text"*/}
-            {/*    icon={isCollapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}*/}
-            {/*    onClick={() => updateCollapse(!isCollapse)}*/}
-            {/*    className="trigger"*/}
-            {/*/>*/}
             <div className="search">
                 <Search addonBefore={selectBefore} placeholder="搜索酒店/机票/门票" size={"large"} onSearch={onSearch} enterButton/>
             <Action/>

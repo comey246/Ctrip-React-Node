@@ -17,7 +17,9 @@ const Index = (props) => {
 
     return (
         <Fragment>
-            <SearchBar></SearchBar><FlightList></FlightList>
+            <div className="bg">
+                <SearchBar></SearchBar><FlightList></FlightList>
+            </div>
         </Fragment>
     );
 }

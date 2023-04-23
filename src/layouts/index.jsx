@@ -8,7 +8,7 @@ import LayoutFooter from "./Footer";
 import LayoutHeader from "./Header";
 import "./index.less";
 
-const {Header, Footer, Sider, Content} = Layout;
+const {Footer, Sider, Content} = Layout;
 
 const Index = (props) => {
     const {
@@ -19,7 +19,7 @@ const Index = (props) => {
     return (
         <Fragment>
             <Layout
-                style={{ minHeight: "100%" }}
+                className="layout"
             >
                 <Sider
                     trigger={null}
@@ -30,12 +30,14 @@ const Index = (props) => {
                     }}
                     collapsed={isMobile?true:isCollapse}
                     collapsedWidth={isMobile?isCollapse?0:60:60}
+                    className="side-layout"
                 >
                     <Affix offsetTop={top}>
                     <LayoutMenu/>
                     </Affix>
                 </Sider>
                 <Layout
+                    className="right-layout"
                 >
                     <div>
                         <Affix offsetTop={top}>
@@ -43,19 +45,16 @@ const Index = (props) => {
                     </Affix>
                     </div>
                     <Content
-                        style={{
-                            margin: '24px 16px',
-                            padding: 24,
-                            minHeight: 280,
-                            background: colorBgContainer,
-                        }}
+                        className="content"
                     >
                         <Outlet/>
                     </Content>
                     <Footer
                         style={{
                             padding: 20,
+
                         }}
+                        className="footer"
                     >
                         <LayoutFooter/>
                     </Footer>

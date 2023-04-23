@@ -7,7 +7,7 @@ import {setAuthRouter} from "@/redux/auth/action.js";
 import { getMenuList } from "@/api/login";
 import {UserOutlined, VideoCameraOutlined} from "@ant-design/icons";
 import { searchRoute } from "@/utils/util.js";
-import "./index.css";
+import "./index.less";
 import global from "@/redux/global/reducer.js";
 import {setToken, setUsername} from "@/redux/global/action.js";
 
@@ -104,7 +104,6 @@ const Index = (props) => {
       <div className={"logo" + (isMobile?" collapse":isCollapse?" collapse":"")} />
       <Spin spinning={loading} tip="Loading...">
         <Menu
-          theme="dark"
           mode="inline"
           selectedKeys={selectedKeys}
           defaultSelectedKeys={["/home/mall/index"]}

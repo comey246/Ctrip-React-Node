@@ -27,21 +27,13 @@ const data = [
   {
     key: 1,
     name: "John Brown",
-    number: 32,
-    description:
-      "商品信息、备注信息、地址、手机号、身份证号、订单编号、下单金额",
+    number: "d153453453",
+    description: <Info />,
   },
   {
     key: 2,
     name: "Jim Green",
-    number: 42,
-    description:
-      "商品信息、备注信息、地址、手机号、身份证号、订单编号、下单金额",
-  },
-  {
-    key: 3,
-    name: "Not Expandable",
-    number: 29,
+    number: "ds546545343",
     description: <Info />,
   },
 ];
@@ -57,13 +49,13 @@ const Adminuser = (props) => {
         columns={columns}
         expandable={{
           expandedRowRender: (record) => (
-            <p
+            <div
               style={{
                 margin: 0,
               }}
             >
               {record.description}
-            </p>
+            </div>
           ),
           rowExpandable: (record) => record.name !== "Not Expandable",
         }}

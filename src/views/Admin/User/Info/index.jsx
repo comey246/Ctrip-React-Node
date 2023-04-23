@@ -8,7 +8,7 @@ const Info = () => (
   >
     <Descriptions.Item label="用户名">John Brown</Descriptions.Item>
     <Descriptions.Item label="昵称">海盐荔枝</Descriptions.Item>
-    <Descriptions.Item label="手机号">18816210685</Descriptions.Item>
+    <Descriptions.Item label="手机号">11235430685</Descriptions.Item>
     <Descriptions.Item label="性别">女</Descriptions.Item>
     <Descriptions.Item label="身份证号">3231546512315415315</Descriptions.Item>
     <Descriptions.Item label="收货地址">梅陇路130号</Descriptions.Item>

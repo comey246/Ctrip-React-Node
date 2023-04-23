@@ -5,8 +5,8 @@ const Info = () => (
     <Descriptions.Item label="订单编号">s1234565789</Descriptions.Item>
     <Descriptions.Item label="出发日期">2023-05-04</Descriptions.Item>
     <Descriptions.Item label="下单时间">2023-05-01 18:00:00</Descriptions.Item>
-    <Descriptions.Item label="出发时间">08:00</Descriptions.Item>
-    <Descriptions.Item label="到达时间">14:30</Descriptions.Item>
+    <Descriptions.Item label="出发时间/地点">08:00/深圳</Descriptions.Item>
+    <Descriptions.Item label="到达时间/地点">14:30/北京</Descriptions.Item>
     <Descriptions.Item label="Status" span={3}>
       <Badge status="processing" text="订单进行中" />
     </Descriptions.Item>

@@ -8,12 +8,12 @@ import Info from "@/views/Admin/Order/Info";
 const columns = [
   {
     title: "商品名称",
-    dataIndex: "商品名称",
+    dataIndex: "name",
     key: "商品名称",
   },
   {
     title: "订单编号",
-    dataIndex: "订单编号",
+    dataIndex: "number",
     key: "订单编号",
   },
   {
@@ -55,13 +55,13 @@ const Adminorder = (props) => {
         columns={columns}
         expandable={{
           expandedRowRender: (record) => (
-            <p
+            <div
               style={{
                 margin: 0,
               }}
             >
               {record.description}
-            </p>
+            </div>
           ),
           rowExpandable: (record) => record.name !== "Not Expandable",
         }}

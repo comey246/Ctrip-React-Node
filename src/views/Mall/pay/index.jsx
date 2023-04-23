@@ -1,5 +1,6 @@
 import React from "react";
-import "./index.css";
+import "./index.less";
+import { Descriptions, Col, Row } from "antd";
 
 const PaymentPage = () => {
   const flightInfo = {
@@ -21,44 +22,56 @@ const PaymentPage = () => {
     <div className="payment-page">
       <h1>支付页面</h1>
       <div className="order-info">
-        <h2>订单信息</h2>
-        <div className="order-left">
-          <p>航班号：{flightInfo.flightNumber}</p>
-          <p>起飞时间：{flightInfo.departureTime}</p>
-          <p>到达时间：{flightInfo.arrivalTime}</p>
-          <p>购买数量：{tickets}</p>
-        </div>
-        <div className="order-right">
-          <p>预定人姓名：{name}</p>
-          <p>预定人手机号：{phoneNumber}</p>
-          <p>预定人身份证号：{maskedIdNumber}</p>
-          <p className="total-price">支付金额：¥{totalPrice}</p>
-        </div>
+        <Descriptions title="订单信息">
+          <Descriptions.Item label="航班号">
+            {flightInfo.flightNumber}
+          </Descriptions.Item>
+          <Descriptions.Item label="起飞时间">
+            {flightInfo.departureTime}
+          </Descriptions.Item>
+          <Descriptions.Item label="到达时间">
+            {flightInfo.arrivalTime}
+          </Descriptions.Item>
+          <Descriptions.Item label="购买数量">{tickets}</Descriptions.Item>
+          <Descriptions.Item label="预定人姓名">{name}</Descriptions.Item>
+          <Descriptions.Item label="预定人手机号">
+            {phoneNumber}
+          </Descriptions.Item>
+          <Descriptions.Item label="预定人身份证号">
+            {maskedIdNumber}
+          </Descriptions.Item>
+          <Descriptions.Item className="total-price" label="支付金额">
+            ¥{totalPrice}
+          </Descriptions.Item>
+        </Descriptions>
       </div>
+
       <div className="payment-methods">
         <h2>支付方式</h2>
-        <div className="method">
-          <label htmlFor="wechat">
-            <input type="radio" id="wechat" name="payment" />
-            微信支付
-          </label>
-        </div>
-        <div className="method">
-          <label htmlFor="alipay">
-            <input type="radio" id="alipay" name="payment" />
-            支付宝支付
-          </label>
-        </div>
-        <div className="method">
-          <label htmlFor="credit-card">
-            <input type="radio" id="credit-card" name="payment" />
-            信用卡支付
-          </label>
-        </div>
+        <Row>
+          <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <label htmlFor="wechat">
+              <input type="radio" id="wechat" name="payment" />
+              微信
+            </label>
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <label htmlFor="alipay">
+              <input type="radio" id="alipay" name="payment" />
+              支付宝
+            </label>
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <label htmlFor="credit-card">
+              <input type="radio" id="credit-card" name="payment" />
+              信用卡
+            </label>
+          </Col>
+        </Row>
       </div>
       <div className="payment-actions">
-        <button className="payment">取消支付</button>
-        <button className="payment">确认支付</button>
+        <button className="cancel-payment">取消支付</button>
+        <button>确认支付</button>
       </div>
     </div>
   );

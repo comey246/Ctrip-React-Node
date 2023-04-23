@@ -1,0 +1,85 @@
+.payment-page {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .order-info {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    .total-price {
+      color: red;
+      font-size: 1.2rem;
+      font-family: "Georgia", serif;
+    }
+  }
+  .payment-methods {
+    display: flex;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 1rem;
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .method {
+      margin-bottom: 0.5rem;
+      input[type="radio"] {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  .payment-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      margin: 1%;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .cancel-payment {
+      background-color: #6c757d;
+    }
+    .cancel-payment:hover {
+      background-color: #5a6268;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .order-info {
+    display: flex;
+    justify-content: space-between;
+    .order-left,
+    .order-right {
+      width: 50%;
+    }
+  }
+  .payment-methods {
+    flex-direction: column;
+  }
+}

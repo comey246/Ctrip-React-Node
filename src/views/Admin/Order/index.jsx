@@ -26,20 +26,20 @@ const columns = [
 const data = [
   {
     key: 1,
-    商品名称: "机票",
-    订单编号: "f2356415",
-    description: "备注信息、地址",
+    name: "机票",
+    number: "f2356415",
+    description: <Info />,
   },
   {
     key: 2,
-    商品名称: "机票",
-    订单编号: "f15634865123",
-    description: "备注信息、地址",
+    name: "机票",
+    number: "f15634865123",
+    description: <Info />,
   },
   {
     key: 3,
-    商品名称: "机票",
-    订单编号: "s853153153",
+    name: "机票",
+    number: "s853153153",
     description: <Info />,
   },
 ];

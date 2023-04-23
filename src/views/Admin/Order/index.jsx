@@ -4,28 +4,17 @@ import { connect } from "react-redux";
 import { setToken } from "@/redux/global/action.js";
 import "./index.css";
 import { Button, Checkbox, Form, Input, message, Table } from "antd";
-
+import Info from "@/views/Admin/Order/Info";
 const columns = [
-  {
-    title: "用户",
-    dataIndex: "用户",
-    key: "用户",
-  },
   {
     title: "商品名称",
     dataIndex: "商品名称",
     key: "商品名称",
   },
   {
-    title: "数量",
-    dataIndex: "数量",
-    key: "数量",
-  },
-
-  {
-    title: "金额",
-    dataIndex: "金额",
-    key: "金额",
+    title: "订单编号",
+    dataIndex: "订单编号",
+    key: "订单编号",
   },
   {
     title: "删除订单",
@@ -37,30 +26,21 @@ const columns = [
 const data = [
   {
     key: 1,
-    用户: "a",
-    商品名称: "John Brown",
-    数量: 2,
-
-    金额: "2*price",
+    商品名称: "机票",
+    订单编号: "f2356415",
     description: "备注信息、地址",
   },
   {
     key: 2,
-    用户: "b",
-    商品名称: "Jim Green",
-    数量: 42,
-
-    金额: "2*price",
+    商品名称: "机票",
+    订单编号: "f15634865123",
     description: "备注信息、地址",
   },
   {
     key: 3,
-    用户: "c",
-    商品名称: "Not Expandable",
-    数量: 29,
-
-    金额: "2*price",
-    description: "备注信息、地址",
+    商品名称: "机票",
+    订单编号: "s853153153",
+    description: <Info />,
   },
 ];
 
@@ -87,7 +67,7 @@ const Adminorder = (props) => {
         }}
         dataSource={data}
       />
-      ;
+
       {/* <div className="loginForm">
         <h2>管理员订单管理</h2>
       </div>

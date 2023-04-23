@@ -37,22 +37,22 @@ const columns = [
 const data = [
   {
     key: 1,
-    商品名称: "John Brown",
+    商品名称: "酒店",
     订单编号: 2,
     description:
       "出发地,xxx,目的地:xxx,航班号:xxx,起飞时间:xxx,到达时间:xxx,用时:xxx,座位号:xxx",
   },
   {
     key: 2,
-    商品名称: "Jim Green",
+    商品名称: "门票",
     订单编号: 1,
     description:
       "出发地,xxx,目的地:xxx,航班号:xxx,起飞时间:xxx,到达时间:xxx,用时:xxx,座位号:xxx",
   },
   {
     key: 3,
-    商品名称: "Not Expandable",
-    订单编号: s1234565789,
+    商品名称: "机票",
+    订单编号: "s1234565789",
     description: <Info />,
   },
 ];
@@ -80,7 +80,7 @@ const Userorder = (props) => {
         }}
         dataSource={data}
       />
-      ;
+
       {/* <div className="loginForm">
         <h2>用户订单信息</h2>
         <button onClick={a}>order</button>

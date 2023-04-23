@@ -1,4 +1,4 @@
-.payment-success {
+.payment-failure {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -8,7 +8,7 @@
   padding: 2%;
   border-radius: 10px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  .success-icon {
+  .failure-icon {
     text-align: center;
     margin-bottom: 1.5rem;
 
@@ -17,13 +17,12 @@
       margin: 1.5rem;
     }
   }
-
-  .success-buttons {
+  .failure-button {
     display: flex;
     justify-content: center;
-    gap: 10px;
     margin-bottom: 1.5rem;
     .btn {
+      margin-top: 1%;
       padding: 8px 16px;
       font-size: 1rem;
       font-weight: bold;
@@ -49,18 +48,5 @@
     margin-bottom: 1.5rem;
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    .total-price {
-      span {
-        color: red;
-        font-size: 1.2rem;
-        font-family: "Georgia", serif;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .order-info {
-    flex-direction: row;
   }
 }

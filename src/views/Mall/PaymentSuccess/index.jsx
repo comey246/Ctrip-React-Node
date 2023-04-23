@@ -21,11 +21,7 @@ const PaymentSuccess = () => {
     <div className="payment-success">
       <div className="success-icon">
         <Space wrap>
-          <Progress
-            className="responsive-progress"
-            type="circle"
-            percent={100}
-          />
+          <Progress type="circle" percent={100} size="default" />
         </Space>
         <h2>提交成功</h2>
       </div>

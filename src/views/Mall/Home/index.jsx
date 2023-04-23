@@ -6,7 +6,7 @@ import { Button, Space, Tag, Row, Col, Select, Input, DatePicker } from "antd";
 import request from "umi-request";
 import PaymentPage from "@/views/Mall/pay/index.jsx";
 import PaymentSuccess from "@/views/Mall/PaymentSuccess/index.jsx";
-
+import PaymentFailure from "@/views/Mall/PaymentFailure/index.jsx";
 import "./index.css";
 
 const { Option } = Select;
@@ -65,6 +65,7 @@ const Index = (props) => {
     <Fragment>
       <PaymentPage></PaymentPage>
       <PaymentSuccess></PaymentSuccess>
+      <PaymentFailure></PaymentFailure>
     </Fragment>
   );
 };

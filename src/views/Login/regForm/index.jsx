@@ -37,10 +37,10 @@ const regForm = (props) => {
         <Form
           name="reg"
           labelCol={{
-            span: 8,
+            span: 4,
           }}
           wrapperCol={{
-            span: 16,
+            span: 20,
           }}
           style={{
             maxWidth: 600,
@@ -104,12 +104,12 @@ const regForm = (props) => {
           </Form.Item> */}
           <Form.Item
             wrapperCol={{
-              offset: 8,
-              span: 16,
+              offset: 10,
+              span: 4,
             }}
           >
             <Button type="primary" htmlType="submit">
-              Submit
+              注册
             </Button>
           </Form.Item>
         </Form>

@@ -1,46 +1,48 @@
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0 0;
-  padding: 0;
-}
+
 .login-container {
-  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
   background-image: url("./images/login_bg.svg");
-  background-position: 50%;
-  background-size: 100% 100%;
   background-size: cover;
   .login-box {
-    // margin: auto auto;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 96%;
-    height: 94%;
-    padding: 0 4% 0 20px;
-    overflow: hidden;
-    border-radius: 10px;
+    height:80%;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
     .login-left {
-      width: 750px;
-      img {
-        width: 100%;
-        height: 100%;
-      }
+      width: 50%;
+      min-width: 300px;
+      img{
+      width: 100%;
+    }
     }
     .login-form {
-      padding: 40px 45px 25px;
-      border-radius: 10px;
+      width: 30%;
+      min-width: 300px;
+      max-width: 400px;
+      padding: 20px 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        img{
+          width: 200px;
+        }
       .login-logo {
         display: flex;
         justify-content: center;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+        img{
+          width: 80%;
+          max-width: 400px;
+        }
         .tab-text {
           padding: 8px 20px;
           margin: 0 5px;
@@ -50,11 +52,9 @@ body,
           color: #888;
           border-bottom: 2px solid transparent;
           transition: color 0.3s, border-color 0.3s;
-
           &:hover {
             color: #333;
           }
-
           &.active {
             color: #333;
             border-color: #333;
@@ -65,38 +65,6 @@ body,
           font-size: 24px;
           font-weight: bold;
           white-space: nowrap;
-        }
-      }
-      .ant-form-item {
-        height: 75px;
-        margin-bottom: 0;
-        .ant-input-prefix {
-          margin-right: 10px;
-        }
-        .ant-input-affix-wrapper-lg {
-          padding: 8.3px 11px;
-        }
-        .ant-input-affix-wrapper,
-        .ant-input-lg {
-          font-size: 14px;
-        }
-        .ant-input-affix-wrapper {
-          color: #bfbfbf;
-        }
-      }
-      .login-btn {
-        width: 100%;
-        margin-top: 10px;
-        white-space: nowrap;
-        .ant-form-item-control-input-content {
-          display: flex;
-          justify-content: space-between;
-          .ant-btn {
-            width: 180px;
-            span {
-              font-size: 14px;
-            }
-          }
         }
       }
     }

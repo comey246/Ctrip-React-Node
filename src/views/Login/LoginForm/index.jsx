@@ -5,13 +5,15 @@ import { setToken,setUsername } from "@/redux/global/action.js";
 import { setMenuList } from "@/redux/menu/action.js";
 import { loginPost, publickKeyGet } from "@/api/login.js";
 import { encodePassword } from "@/utils/util.js";
-import "./index.css";
+import "./index.less";
 import { Button, Checkbox, Form, Input, message } from "antd";
 
 const LoginForm = (props) => {
   const navigate = useNavigate();
-  const { setToken,setUsername } = props;
+  const { setToken,setUsername,username } = props;
   const [loading, setLoading] = useState(false);
+  const [remember, setRemember] = useState(false);
+  const [initusername, setInitusername] = useState('');
   const [messageApi, contextHolder] = message.useMessage();
   const warning = (massage) => {
     messageApi.open({
@@ -22,6 +24,7 @@ const LoginForm = (props) => {
   const onFinish = async (loginForm) => {
     try {
       const { username, password, remember } = loginForm;
+      setRemember(remember)
       setLoading(true);
       const keyRes = await publickKeyGet({ username });
       const publicKeyPem = keyRes.data?.publicKey;
@@ -45,16 +48,14 @@ const LoginForm = (props) => {
         <Form
           name="login"
           labelCol={{
-            span: 8,
+            span: 4,
           }}
           wrapperCol={{
-            span: 16,
-          }}
-          style={{
-            maxWidth: 600,
+            span: 20,
           }}
           initialValues={{
-            remember: true,
+            username,
+            remember,
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -66,7 +67,7 @@ const LoginForm = (props) => {
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: "请输入用户名!",
               },
             ]}
           >
@@ -79,7 +80,7 @@ const LoginForm = (props) => {
             rules={[
               {
                 required: true,
-                message: "Please input your password!",
+                message: "请输入密码!",
               },
             ]}
           >
@@ -90,27 +91,27 @@ const LoginForm = (props) => {
             name="remember"
             valuePropName="checked"
             wrapperCol={{
-              offset: 8,
-              span: 16,
+              offset: 10,
+              span: 5,
             }}
           >
             <Checkbox>记住我</Checkbox>
           </Form.Item>
           <Form.Item
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}
+              wrapperCol={{
+                offset: 10,
+                span: 4,
+              }}
           >
             <Button type="primary" loading={loading} htmlType="submit">
-              Submit
+              登录
             </Button>
           </Form.Item>
         </Form>
-      </div>
+        </div>
     </Fragment>
   );
 };
-
+const mapStateToProps = (state)=>(state.global)
 const mapDispatchToProps = { setToken, setMenuList,setUsername };
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

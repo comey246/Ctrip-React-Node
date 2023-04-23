@@ -19,13 +19,23 @@ import {
 const columns = [
   {
     title: "商品名称",
-    dataIndex: "商品名称",
+    dataIndex: "name",
     key: "商品名称",
   },
   {
-    title: "订单编号",
-    dataIndex: "订单编号",
-    key: "订单编号",
+    title: "数量",
+    dataIndex: "number",
+    key: "数量",
+  },
+  {
+    title: "地址",
+    dataIndex: "address",
+    key: "地址",
+  },
+  {
+    title: "金额",
+    dataIndex: "price",
+    key: "金额",
   },
   {
     title: "删除订单",
@@ -37,24 +47,14 @@ const columns = [
 const data = [
   {
     key: 1,
-    商品名称: "酒店",
-    订单编号: 2,
+    name: "John Brown",
+    number: 2,
+    address: "New York No. 1 Lake Park",
+    price: "2*price",
     description:
-      "出发地,xxx,目的地:xxx,航班号:xxx,起飞时间:xxx,到达时间:xxx,用时:xxx,座位号:xxx",
+      <Info/>,
   },
-  {
-    key: 2,
-    商品名称: "门票",
-    订单编号: 1,
-    description:
-      "出发地,xxx,目的地:xxx,航班号:xxx,起飞时间:xxx,到达时间:xxx,用时:xxx,座位号:xxx",
-  },
-  {
-    key: 3,
-    商品名称: "机票",
-    订单编号: "s1234565789",
-    description: <Info />,
-  },
+
 ];
 
 const Userorder = (props) => {
@@ -80,7 +80,6 @@ const Userorder = (props) => {
         }}
         dataSource={data}
       />
-
       {/* <div className="loginForm">
         <h2>用户订单信息</h2>
         <button onClick={a}>order</button>

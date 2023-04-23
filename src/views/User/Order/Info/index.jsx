@@ -14,7 +14,7 @@ const Info = () => (
     <Descriptions.Item label="数量">2</Descriptions.Item>
     <Descriptions.Item label="总价">2400</Descriptions.Item>
     <Descriptions.Item label="更多信息">
-      收获地址: 梅陇路130号
+      收货地址: 梅陇路130号
       <br />
       航班号: SH0481
       <br />

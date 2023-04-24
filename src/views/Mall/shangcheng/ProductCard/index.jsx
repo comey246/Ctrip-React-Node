@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Image, Tag, Button } from "antd";
 import styles from "./index.css";
-// <meta name="viewport" content="width=device-width, initial-scale=1.0" />;
 
 const ProductCard = ({ imageUrl, title, description, price, stock, sold }) => {
   return (
@@ -12,7 +11,6 @@ const ProductCard = ({ imageUrl, title, description, price, stock, sold }) => {
     >
       <Card.Meta title={title} />
       <div className={styles.cardInfo}>
-        {/* <p className={styles.cardDescription}>{description}</p> */}
         <div className={styles.tagGroup}>
           <Tag color="orange">库存: {stock}</Tag>
           <Tag color="cyan">已售: {sold}</Tag>
@@ -24,8 +22,6 @@ const ProductCard = ({ imageUrl, title, description, price, stock, sold }) => {
           查看详情
         </Button>
       </div>
-
-      {/* <p style={{ marginTop: 16, fontWeight: "bold" }}>{price}</p> */}
     </Card>
   );
 };

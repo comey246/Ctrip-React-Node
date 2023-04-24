@@ -20,3 +20,14 @@ export const payFlight = (params) => {
     return http.post(`/mall/flight/pay`, qs.stringify(params)); // post 请求携带 表单 参数  ==>  application/x-www-form-urlencoded
     return http.post(`/mall/flight/pay`, params, { headers: { noLoading: true } }); // 控制当前请求不显示 loading
 };
+export const getOrder = (params) => {
+    return http.get(`/mall/user/order`,params);
+};
+
+export const deletOrder = (params) => {
+    return http.get(`/mall/user/order/delete`,params);
+};
+
+export const getOrders = () => {
+    return http.get(`/mall/user/orders`);
+};

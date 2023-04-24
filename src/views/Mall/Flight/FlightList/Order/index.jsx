@@ -6,7 +6,7 @@ import {Modal, Spin, Button, Descriptions, message} from "antd";
 
 
 const TicketBooking = (props) => {
-    const {ticket,ModalOpen,close,handlePay} = props
+    const {ticket,ModalOpen,close,open} = props
     const [isModalOpen, setIsModalOpen,] = useState(false);
     const [phone, setPhone] = useState("");
     const [name, setName] = useState("");
@@ -18,7 +18,7 @@ const TicketBooking = (props) => {
         setLoading(true)
         const {code,data:{order},message} = await bookFlight({phone, idNumber,name, tickets,...ticket})
         if(code===200){
-            handlePay(order);
+            open(order);
         } else {
             close();
             message.error(message);
@@ -31,20 +31,7 @@ const TicketBooking = (props) => {
         close();
     };
     return (
-        <Modal
-            width={1000}
-            closable={false}
-            maskStyle={{background: "rgba(255,255,255,0.2)", backdropFilter: "blur(6px)"}}
-            open={ModalOpen}
-            footer={[
-                <Button key="back" onClick={handleCancel} style={{width:50}}>
-                    取消
-                </Button>,
-                <Button key="submit" type="primary" loading={loading} onClick={handleOk} >
-                    确认下单
-                </Button>  ]}
-
-        ><div className="ticket-booking">
+            <div className="ticket-booking">
                     <h1>机票预订</h1>
                     <div className="order-info"><Spin spinning={loading} tip="Loading...">
                         <Descriptions title="航班信息">
@@ -94,7 +81,7 @@ const TicketBooking = (props) => {
                         <input
                             type="text"
                             id="name"
-                            value={idNumber}
+                            value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
                         />
@@ -116,10 +103,11 @@ const TicketBooking = (props) => {
                         />
                         <div className="total-price-and-submit">
                             <span className="totalprice">总价：¥{tickets * ticket.price}</span>
+                            <button onClick={handleOk} >确定下单</button>
+                            <button onClick={handleCancel} >取消</button>
                         </div>
                     </form>
         </div>
-        </Modal>
     );
 };
 

@@ -56,13 +56,15 @@ const Index = (props) => {
         setOrder(order)
     }
     const payResult = (isPay,order_id)=>{
-        setPay(3)
+        setPay(isPay)
+        setOrder(order_id)
     }
 
     if(pay ===0) return(flightList.map((item)=><FlightCard key={item.flight_number} item={item} checkFlight={checkFlight}/>))
     else if(pay===1) return(<Order ticket={ticket} close={handleCancel} ModalOpen={isModalOpen} open={handelPay}></Order>)
-        else if(pay===2)return(<Pay order={order} payResult={payResult} ></Pay>)
-
+        else if(pay===2)return(<Pay order={order} payResult={payResult} handleCancel={handleCancel}></Pay>)
+    else if(pay===3)return(<PaymentSuccess order={order} handleCancel={handleCancel}></PaymentSuccess>)
+    else if(pay===-1) return
 }
 const mapStateToProps = (state) => (state.mall);
 export default connect( mapStateToProps)(Index);

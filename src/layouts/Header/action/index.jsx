@@ -78,7 +78,7 @@ const Index = (props) => {
             {
                 key: '3',
                 label: (
-                    <a onClick={()=>toPath('/home/admin/order')}>
+                    <a onClick={()=>toPath('/home/admin/user')}>
                         所有用户
                     </a>
                 ),

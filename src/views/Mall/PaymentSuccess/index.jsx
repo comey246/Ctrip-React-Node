@@ -1,7 +1,10 @@
 import React from "react";
 import "./index.less";
+import {useNavigate} from "react-router-dom";
 import { Descriptions, Col, Row, Progress, Space } from "antd";
-const PaymentSuccess = () => {
+const PaymentSuccess = (props) => {
+  const {handleCancel} = props;
+  const navigate = useNavigate()
   const flightInfo = {
     flightNumber: "CA1234",
     departureTime: "2023-04-22 14:00",
@@ -16,6 +19,9 @@ const PaymentSuccess = () => {
 
   const maskedIdNumber =
     idNumber.slice(0, -6).replace(/\d/g, "*") + idNumber.slice(-6);
+const toOrder = ()=>{
+  navigate('/home/user/order')
+}
 
   return (
     <div className="payment-success">
@@ -27,8 +33,8 @@ const PaymentSuccess = () => {
       </div>
 
       <div className="success-buttons">
-        <button className="btn">返回</button>
-        <button className="btn">查看</button>
+        <button className="btn" onClick={handleCancel}>返回</button>
+        <button className="btn" onClick={toOrder}>查看</button>
         <button className="btn">打印</button>
       </div>
       <div className="order-info">

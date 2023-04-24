@@ -31,3 +31,7 @@ export const getAuthorButtons = () => {
 export const getMenuList = () => {
 	return http.get( `/menu/list`);
 };
+
+export const getRole = () => {
+	return http.get( `/role`);
+}

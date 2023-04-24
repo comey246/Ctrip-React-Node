@@ -11,7 +11,7 @@ import {
     ShoppingCartOutlined,
     QuestionCircleOutlined, SyncOutlined
 } from "@ant-design/icons";
-import {Layout, Input, Button, Select, Space, FloatButton} from "antd";
+import {Layout, Input, Button, Select, Space, FloatButton, DatePicker} from "antd";
 
 const {Header} = Layout;
 const {Search} = Input;
@@ -47,10 +47,9 @@ const Index = (props) => {
         <Header className="header">
             <div className="search">
                 <Search addonBefore={selectBefore} placeholder="搜索酒店/机票/门票" size={"large"} onSearch={onSearch} enterButton/>
-            <Action/>
+                <Action/>
             </div>
         </Header>
-
     <FloatButton.Group shape="circle" style={{ left: 10 }}>
         <FloatButton
             icon={isCollapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import produce from "immer";
 import { getFlightList } from "@/api/mall.js";
-import { ProList } from "@ant-design/pro-components";
+
 import { Button, Space, Tag, Row, Col, Select, Input, DatePicker } from "antd";
 import request from "umi-request";
 import PaymentPage from "@/views/Mall/Pay/index.jsx";

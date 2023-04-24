@@ -9,6 +9,7 @@ import PaymentSuccess from "@/views/Mall/PaymentSuccess/index.jsx";
 import PaymentFailure from "@/views/Mall/PaymentFailure/index.jsx";
 import TicketBooking from "@/views/Mall/Order/index.jsx";
 import TravelPage from "@/views/Mall/Front/index.jsx";
+import ProductList from "@/views/Mall/shangcheng/index.jsx";
 
 import "./index.css";
 
@@ -67,10 +68,11 @@ const Index = (props) => {
   return (
     <Fragment>
       <TravelPage></TravelPage>
-      <TicketBooking></TicketBooking>
+      <ProductList></ProductList>
+      {/* <TicketBooking></TicketBooking>
       <PaymentPage></PaymentPage>
       <PaymentSuccess></PaymentSuccess>
-      <PaymentFailure></PaymentFailure>
+      <PaymentFailure></PaymentFailure> */}
     </Fragment>
   );
 };

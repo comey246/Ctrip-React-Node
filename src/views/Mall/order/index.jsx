@@ -20,14 +20,18 @@ const TicketBooking = () => {
       <div className="order-info">
         <Descriptions title="航班信息">
           <Descriptions.Item label="航班号">CA1234</Descriptions.Item>
-
+          <Descriptions.Item label="航空公司">中航</Descriptions.Item>
+          <Descriptions.Item label="飞机型号">空客A320</Descriptions.Item>
           <Descriptions.Item label="起飞时间">
             2023-04-22 14:00
           </Descriptions.Item>
-
+          <Descriptions.Item label="起飞地点">深圳</Descriptions.Item>
           <Descriptions.Item label="到达时间">
             2023-04-22 14:00
           </Descriptions.Item>
+          <Descriptions.Item label="到达地点">北京</Descriptions.Item>
+          <Descriptions.Item label="已售">5</Descriptions.Item>
+          <Descriptions.Item label="余票">100</Descriptions.Item>
         </Descriptions>
       </div>
       <div className="flight-info">
@@ -45,8 +49,14 @@ const TicketBooking = () => {
             value={tickets}
             onChange={(e) => setTickets(e.target.value)}
             min="1"
+            max="100"
           />
-          <button onClick={() => setTickets(tickets + 1)}>+</button>
+          <button
+            onClick={() => setTickets(tickets + 1)}
+            disabled={tickets >= 100}
+          >
+            +
+          </button>
         </div>
       </div>
 

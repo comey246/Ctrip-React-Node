@@ -8,6 +8,8 @@ import PaymentPage from "@/views/Mall/Pay/index.jsx";
 import PaymentSuccess from "@/views/Mall/PaymentSuccess/index.jsx";
 import PaymentFailure from "@/views/Mall/PaymentFailure/index.jsx";
 import TicketBooking from "@/views/Mall/Order/index.jsx";
+import TravelPage from "@/views/Mall/Front/index.jsx";
+
 import "./index.css";
 
 const { Option } = Select;
@@ -64,6 +66,7 @@ const Index = (props) => {
   };
   return (
     <Fragment>
+      <TravelPage></TravelPage>
       <TicketBooking></TicketBooking>
       <PaymentPage></PaymentPage>
       <PaymentSuccess></PaymentSuccess>

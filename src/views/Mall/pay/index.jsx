@@ -14,7 +14,7 @@ const PaymentPage = () => {
   const phoneNumber = "13800138000";
   const idNumber = "110101199003078888";
   const name = "张三";
-
+  const time = "2023-04-20 14:00";
   const maskedIdNumber =
     idNumber.slice(0, -6).replace(/\d/g, "*") + idNumber.slice(-6);
 
@@ -40,6 +40,7 @@ const PaymentPage = () => {
           <Descriptions.Item label="预定人身份证号">
             {maskedIdNumber}
           </Descriptions.Item>
+          <Descriptions.Item label="下单时间">{time}</Descriptions.Item>
           <Descriptions.Item className="total-price" label="支付金额">
             ¥{totalPrice}
           </Descriptions.Item>

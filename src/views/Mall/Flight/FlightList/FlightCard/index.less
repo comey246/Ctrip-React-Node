@@ -1,0 +1,61 @@
+.flight-item {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin-bottom: 1vw;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 1vw;
+  border-radius: 1vw;
+  box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
+  .plane-model,
+  .departure-time,
+  .duration,
+  .price {
+    margin-bottom: 0.5vw;
+  }
+  .plane-model {
+    font-size: 1.3vw;
+    font-weight: 500;
+  }
+  .departure-time {
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: #1a73e8;
+  }
+  .duration {
+    font-size: 1.4vw;
+  }
+
+  .price {
+    font-size: 2vw;
+    font-weight: bold;
+    color: #f56a00;
+  }
+
+  .book-button {
+    text-align: right;
+  }
+
+  .arrow-icon {
+    @media (max-width: 575px) {
+      transform: scale(0.8);
+      width: 6vw;
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+      transform: scale(1);
+      width: 6vw;
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      transform: scale(1.2);
+      width: 6vw;
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      transform: scale(1.4);
+      width: 6vw;
+    }
+    @media (min-width: 1200px) {
+      transform: scale(1.6);
+      width: 6vw;
+    }
+  }
+}

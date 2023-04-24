@@ -1,22 +1,10 @@
-/* FlightList.css */
-.flight-item {
-  padding: 20px;
-  background-color: #f9f9f9;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
 .search-container {
   width: 100%;
   margin-bottom: 10px;
 }
 
 .destination,
-.date,
-.plane-model,
-.departure-time,
-.duration,
-.price {
+.date {
   margin-bottom: 5px;
 }
 
@@ -29,27 +17,6 @@
   font-size: 14px;
   color: #888;
 }
-
-.plane-model,
-.departure-time {
-  font-size: 16px;
-}
-
-.duration {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.price {
-  font-size: 20px;
-  font-weight: bold;
-  color: #f56a00;
-}
-
-.book-button {
-  text-align: right;
-}
-
 
 @media screen and (max-width: 767px) {
   .search-container {

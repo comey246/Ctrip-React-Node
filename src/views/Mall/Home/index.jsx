@@ -69,10 +69,10 @@ const Index = (props) => {
     <Fragment>
       <TravelPage></TravelPage>
       <ProductList></ProductList>
-      {/* <TicketBooking></TicketBooking>
+      <TicketBooking></TicketBooking>
       <PaymentPage></PaymentPage>
       <PaymentSuccess></PaymentSuccess>
-      <PaymentFailure></PaymentFailure> */}
+      <PaymentFailure></PaymentFailure>
     </Fragment>
   );
 };

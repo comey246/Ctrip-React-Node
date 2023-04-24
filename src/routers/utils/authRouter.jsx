@@ -6,18 +6,41 @@ import { rootRouter } from "@/routers/index";
 import { store } from "@/redux";
 
 const axiosCanceler = new AxiosCanceler();
-
+const derictionIndex = (pathname)=>{
+	switch (pathname){
+		case '/home':
+			pathname = "/home/mall/index"
+			break;
+		case '/home/mall':
+			pathname = "/home/mall/index"
+			break;
+		case '/home/user':
+			pathname = "/home/user/order"
+			break
+		case '/home/admin':
+			pathname = "/home/admin/user"
+			break
+		default:
+			return false
+	}
+	return pathname
+}
 /**
  * @description 路由守卫组件
  * */
 const AuthRouter = (props) => {
-	const { pathname } = useLocation();
+	let { pathname } = useLocation();
+
 	const route = searchRoute(pathname, rootRouter);
 	if(route == {}) return <Navigate to="/login" replace />
 	// * 在跳转路由之前，清除所有的请求
 	axiosCanceler.removeAllPending();
 	// * 判断当前路由是否需要访问权限(不需要权限直接放行)
-	if (!route.meta?.requiresAuth) return props.children;
+	if (!route.meta?.requiresAuth) {
+		const path = derictionIndex(pathname)
+		if(!path) return props.children;
+		else return <Navigate to={path} replace />
+	}
 	// * 判断是否有Token
 	const token = store.getState().global.token;
 	if (!token) return <Navigate to="/login" replace />;

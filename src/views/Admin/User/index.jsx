@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from "@/redux/global/action.js";
 import "./index.css";
-import { Button, Checkbox, Form, Input, message, Table } from "antd";
+import {Button, Checkbox, DatePicker, Form, Input, message, Table} from "antd";
 import Info from "@/views/Admin/User/Info";
 const columns = [
   {
@@ -61,7 +61,6 @@ const Adminuser = (props) => {
         }}
         dataSource={data}
       />
-
       {/* <div className="loginForm">
         <h2>管理员用户管理页面</h2>
         <button onClick={a}>mall</button>

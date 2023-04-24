@@ -5,7 +5,7 @@ import { getFlightList } from "@/api/mall.js";
 import { Button, Space, Tag, Row, Col, Select, Input, DatePicker } from "antd";
 import { SwapOutlined, RightOutlined } from "@ant-design/icons";
 import request from "umi-request";
-import "./index.css";
+// import "./index.css";
 
 const { Option } = Select;
 const { Search } = Input;

@@ -20,11 +20,18 @@
     }
   }
 }
-.header-actions button {
-  font-weight: bold;
+.header-actions {
+  padding-left: 10px;
+  .button{
+    padding: 0 10px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.5);
+  }
+  .button:hover {
+    background: rgba(255,255,255,1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
 }
 
-.header-actions .ant-btn-primary {
-  background-color: #1890ff;
-  border-color: #1890ff;
-}
+

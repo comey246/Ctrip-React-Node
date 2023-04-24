@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
-import { BrowserRouter, HashRouter } from "react-router-dom";
+
+import { BrowserRouter} from "react-router-dom";
 import Router from "@/routers/index";
 import AuthRouter from "@/routers/utils/authRouter.jsx";
 import "./index.less";

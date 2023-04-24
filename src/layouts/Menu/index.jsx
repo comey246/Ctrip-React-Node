@@ -1,5 +1,5 @@
 import React, { Fragment, useState,useEffect } from "react";
-import { Menu, Spin, FloatButton } from "antd";
+import {Menu, Spin, FloatButton, DatePicker} from "antd";
 import { connect } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setMenuList } from "@/redux/menu/action";
@@ -91,7 +91,6 @@ const Index = (props) => {
     getMenuData();
   }, []);
   const selectMenu = (key) => {
-    console.log(key);
     navigate(key.key);
     // const route = searchRoute(key, props.menuList);
     // if (route.isLink) window.open(route.isLink, "_blank");
@@ -101,7 +100,9 @@ const Index = (props) => {
 
   return (
     <Fragment>
-      <div className={"logo" + (isMobile?" collapse":isCollapse?" collapse":"")} />
+      <div className="logo-header">
+        <div className={"logo" + (isMobile?" collapse":isCollapse?" collapse":"")}></div>
+      </div>
       <Spin spinning={loading} tip="Loading...">
         <Menu
           mode="inline"

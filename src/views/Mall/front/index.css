@@ -22,12 +22,6 @@
   opacity: 0.7;
 }
 
-h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .carousel-item h3 {
   position: absolute;

@@ -3,7 +3,6 @@ import SearchBar from "@/views/Mall/Flight/SearchBar/index.jsx";
 import FlightList from "@/views/Mall/Flight/FlightList/index.jsx";
 import produce from "immer";
 import {getFlightList} from "@/api/mall.js";
-import {ProList} from "@ant-design/pro-components";
 import {Button, Space, Tag, Row, Col, Select, Input, DatePicker} from "antd";
 import request from "umi-request";
 import "./index.css";
@@ -17,9 +16,7 @@ const Index = (props) => {
 
     return (
         <Fragment>
-            <div className="bg">
                 <SearchBar></SearchBar><FlightList></FlightList>
-            </div>
         </Fragment>
     );
 }

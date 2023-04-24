@@ -5,8 +5,9 @@ import { setToken,setUsername } from "@/redux/global/action.js";
 import { setMenuList } from "@/redux/menu/action.js";
 import { loginPost, publickKeyGet } from "@/api/login.js";
 import { encodePassword } from "@/utils/util.js";
+import {UserOutlined,LockOutlined} from "@ant-design/icons";
 import "./index.less";
-import { Button, Checkbox, Form, Input, message } from "antd";
+import {Button, Checkbox, DatePicker, Form, Input, message} from "antd";
 
 const LoginForm = (props) => {
   const navigate = useNavigate();
@@ -47,12 +48,6 @@ const LoginForm = (props) => {
       <div className="loginForm">
         <Form
           name="login"
-          labelCol={{
-            span: 4,
-          }}
-          wrapperCol={{
-            span: 20,
-          }}
           initialValues={{
             username,
             remember,
@@ -62,49 +57,52 @@ const LoginForm = (props) => {
           autoComplete="off"
         >
           <Form.Item
-            label="用户名"
             name="username"
+
             rules={[
               {
                 required: true,
                 message: "请输入用户名!",
               },
+              {
+                pattern:new RegExp(/^[a-zA-Z0-9_-]{4,8}$/),message:'只允许数字、字母、下划线、短横线、4-8位'
+
+              }
             ]}
           >
-            <Input />
+            <Input  prefix={<UserOutlined className="site-form-item-icon" />}  placeholder="用户名"/>
           </Form.Item>
 
           <Form.Item
-            label="密码"
             name="password"
             rules={[
               {
                 required: true,
                 message: "请输入密码!",
               },
+              {
+                pattern:new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/),message:'必须包含数字、小大写字母、8-16位'
+              }
             ]}
           >
-            <Input.Password />
+            <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="Password"/>
           </Form.Item>
 
+          {/*<Form.Item*/}
+          {/*  name="remember"*/}
+          {/*  valuePropName="checked"*/}
+          {/*  wrapperCol={{*/}
+          {/*    offset: 9,*/}
+          {/*    span: 5,*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  <Checkbox>记住我</Checkbox>*/}
+          {/*</Form.Item>*/}
           <Form.Item
-            name="remember"
-            valuePropName="checked"
-            wrapperCol={{
-              offset: 10,
-              span: 5,
-            }}
+
           >
-            <Checkbox>记住我</Checkbox>
-          </Form.Item>
-          <Form.Item
-              wrapperCol={{
-                offset: 10,
-                span: 4,
-              }}
-          >
-            <Button type="primary" loading={loading} htmlType="submit">
-              登录
+            <Button type="primary" htmlType="submit" className="login-form-button">
+              登 录
             </Button>
           </Form.Item>
         </Form>

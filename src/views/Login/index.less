@@ -1,18 +1,22 @@
-
 .login-container {
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  min-height:800px;
+  width: 100vw;
+  min-width:300px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-image: url("./images/login_bg.svg");
+  background-repeat: repeat;
   background-size: cover;
   .login-box {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 96%;
-    height:80%;
+    margin: 10px;
+    width: 96vw;
+    height:80vh;
+    min-height: 800px;
     border-radius: 20px;
     background: rgba(255,255,255,0.5);
     backdrop-filter: blur(10px);
@@ -29,6 +33,7 @@
       min-width: 300px;
       max-width: 400px;
       padding: 20px 20px;
+      margin-bottom: 20px;
       border-radius: 20px;
       background: rgba(255,255,255,0.9);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
@@ -66,6 +71,10 @@
           font-weight: bold;
           white-space: nowrap;
         }
+      }
+      .form{
+        width: 80%;
+        padding: 0 10%;
       }
     }
   }

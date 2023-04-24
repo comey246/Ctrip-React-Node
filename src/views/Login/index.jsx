@@ -18,7 +18,6 @@ export default function index() {
     setShowLoginForm(false);
   };
   return (
-    <Fragment>
       <div className="login-container">
         <div className="login-box">
           <div className="login-left">
@@ -26,7 +25,6 @@ export default function index() {
           </div>
           <div className="login-form">
               <img src={logo} alt="logo" />
-            <div>
             <div className="login-logo">
               <span
                 className={`tab-text ${showLoginForm ? "active" : ""}`}
@@ -41,11 +39,11 @@ export default function index() {
                 注册
               </span>
             </div>
-            {showLoginForm ? <LoginForm /> : <RegForm />}
-          </div>
+            <div className="form">
+              {showLoginForm ? <LoginForm /> : <RegForm />}
+            </div>
           </div>
         </div>
       </div>
-    </Fragment>
   );
 }

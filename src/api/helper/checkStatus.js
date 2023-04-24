@@ -1,5 +1,7 @@
 import { message } from "antd";
 import {store} from "@/redux/index.js";
+import {setToken} from "@/redux/global/action.js";
+import {useNavigate} from "react-router-dom";
 
 /**
  * @description: 校验网络请求状态码
@@ -7,15 +9,16 @@ import {store} from "@/redux/index.js";
  * @return void
  */
 export const checkStatus = (status) => {
+	const navigate = useNavigate
 	switch (status) {
 		case 400:
 			message.error("请求失败！请您稍后重试");
 			break;
-		case 401:
+		case 401:{
 			message.error("登录失效！请您重新登录");
 			store.dispatch(setToken(""));
-			message.error(data.message);
-			window.location.hash = "/Login";
+			window.location.pathname = '/login'
+		}
 			break;
 		case 403:
 			message.error("当前账号无权限访问！");

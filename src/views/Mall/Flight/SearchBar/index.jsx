@@ -8,7 +8,7 @@ import request from "umi-request";
 import "./index.less";
 import {setToken, setUsername} from "@/redux/global/action.js";
 import {setMenuList} from "@/redux/menu/action.js";
-import {SwapOutlined} from "@ant-design/icons";
+import {SwapOutlined,ArrowRightOutlined} from "@ant-design/icons";
 
 const {Option} = Select;
 const {Search} = Input;
@@ -41,9 +41,11 @@ const Index = (props) => {
             }))
     }
     const swapLocations = () => {
+        const tem = flight.destination
         setFlight(
             produce(flight, (draft) => {
-                [draft.origin, draft.destination] = [draft.destination, draft.origin];
+                draft.destination=flight.origin
+                draft.origin = tem;
             })
         );
     };
@@ -104,7 +106,7 @@ const Index = (props) => {
                         </Button>
                     </Col>
                 </Row>
-
+               <h3> {flight.origin}<ArrowRightOutlined style={{width:20}}/>{flight.destination}</h3>
             </div>
 
 </Fragment>

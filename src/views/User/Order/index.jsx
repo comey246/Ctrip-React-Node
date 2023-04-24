@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setToken } from "@/redux/global/action.js";
@@ -44,6 +44,7 @@ const data = [
 ];
 
 const Userorder = (props) => {
+  // useEffect()
   //   const navigate = useNavigate();
   //   const a = () => {
   //     navigate("/admin/order");

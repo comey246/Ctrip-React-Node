@@ -1,6 +1,6 @@
 import React, {useEffect, useState,Fragment} from "react";
 import SearchBar from "@/views/Mall/Flight/SearchBar/index.jsx";
-import FlightList from "@/views/Mall/Flight/FlightList/index.jsx";
+import FlightList1 from "@/views/Mall/Flight/FlightList1/index.jsx";
 import produce from "immer";
 import {getFlightList} from "@/api/mall.js";
 import {Button, Space, Tag, Row, Col, Select, Input, DatePicker} from "antd";
@@ -16,7 +16,7 @@ const Index = (props) => {
 
     return (
         <Fragment>
-                <SearchBar></SearchBar><FlightList></FlightList>
+                <SearchBar></SearchBar><FlightList1></FlightList1>
         </Fragment>
     );
 }

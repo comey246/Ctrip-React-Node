@@ -14,10 +14,10 @@ const TicketBooking = (props) => {
     const [tickets, setTickets] = useState(1);
     const [loading,setLoading] = useState(false)
 
-    useEffect(()=>{setIsModalOpen(isModalOpen),console.log(ModalOpen)},[ModalOpen])
     const handleOk = async () => {
         setLoading(true)
         const data = await bookFlight({phone, idNumber, tickets,...ticket})
+        console.log(data)
         close();
         setIsModalOpen(false)
         setLoading(false)
@@ -26,7 +26,8 @@ const TicketBooking = (props) => {
         setIsModalOpen(false)
         close();
     };
-    return (<Modal
+    return (
+        <Modal
             title="预订详情"
             maskStyle={{background: "rgba(255,255,255,0.2)", backdropFilter: "blur(6px)"}}
             open={ModalOpen}

@@ -4,10 +4,7 @@ import { getFlightList } from "@/api/mall.js";
 
 import { Button, Space, Tag, Row, Col, Select, Input, DatePicker } from "antd";
 import request from "umi-request";
-import PaymentPage from "@/views/Mall/Pay/index.jsx";
-import PaymentSuccess from "@/views/Mall/PaymentSuccess/index.jsx";
-import PaymentFailure from "@/views/Mall/PaymentFailure/index.jsx";
-import TicketBooking from "@/views/Mall/Order/index.jsx";
+
 import TravelPage from "@/views/Mall/Front/index.jsx";
 import ProductList from "@/views/Mall/shangcheng/index.jsx";
 
@@ -69,10 +66,6 @@ const Index = (props) => {
     <Fragment>
       <TravelPage></TravelPage>
       <ProductList></ProductList>
-      <TicketBooking></TicketBooking>
-      <PaymentPage></PaymentPage>
-      <PaymentSuccess></PaymentSuccess>
-      <PaymentFailure></PaymentFailure>
     </Fragment>
   );
 };

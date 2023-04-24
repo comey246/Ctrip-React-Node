@@ -40,7 +40,7 @@ const Index = (props) => {
         </Col>
         <Col xs={12} sm={6} md={3} lg={3} xl={3}>
           <div className="book-button">
-            <Button type="primary" onClick={() => checkFlight(item)}>
+            <Button style={{width:"100%"}} type="primary" onClick={() => checkFlight(item)}>
               订票
             </Button>
           </div>

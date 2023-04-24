@@ -77,14 +77,18 @@ const Index = (props) => {
               onChange={onChange("origin")}
             />
           </Col>
-          <Col xs={4} sm={8} md={1} lg={1} xl={1}>
-            <Button
-              className="swap"
-              type="dashed"
-              shape="circle"
-              icon={<SwapOutlined className="swap-arrow" />}
-              onClick={swapLocations}
-            />
+          <Col xs={24} sm={24} md={6} lg={3} xl={3}>
+            <h3>
+              {flight.origin}
+              <Button
+                className="swap"
+                type="dashed"
+                shape="circle"
+                icon={<SwapOutlined className="swap-arrow" />}
+                onClick={swapLocations}
+              />
+              {flight.destination}
+            </h3>
           </Col>
           <Col xs={10} sm={8} md={4} lg={4} xl={4}>
             <Select
@@ -101,7 +105,7 @@ const Index = (props) => {
               <DatePicker onChange={onSelect} />
             </Space>
           </Col>
-          <Col xs={24} sm={8} md={2} lg={2} xl={2}>
+          <Col xs={24} sm={8} md={4} lg={3} xl={3}>
             <Button
               className="search"
               key="1"
@@ -113,17 +117,6 @@ const Index = (props) => {
             </Button>
           </Col>
         </Row>
-        <h3>
-          {flight.origin}
-          <Button
-            className="swap"
-            type="dashed"
-            shape="circle"
-            icon={<SwapOutlined className="swap-arrow" />}
-            onClick={swapLocations}
-          />
-          {flight.destination}
-        </h3>
       </div>
     </Fragment>
   );

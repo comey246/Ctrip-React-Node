@@ -82,25 +82,11 @@
     }
     .total-price-and-submit {
       display: flex;
-      justify-content: flex-end; /* 调整为靠右对齐 */
+      justify-content: f; /* 调整为靠右对齐 */
       align-items: center;
       gap: 1rem; /* 在总价和按钮之间添加间距 */
-      .totalprice {
-        color: red;
-        font-size: 1.2rem; /* 字号增大 */
-        font-family: "Georgia", serif; /* 使用 Georgia 字体，可以替换为您喜欢的字体 */
-      }
-      button {
-        font-size: 1rem;
-        font-weight: bold;
-        color: white;
-        background-color: #007bff;
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
+
+
 
       button:hover {
         background-color: #0056b3;
@@ -125,7 +111,11 @@
     }
   }
 }
-
+.totalprice {
+  color: red;
+  font-size: 1.2rem; /* 字号增大 */
+  font-family: "Georgia", serif; /* 使用 Georgia 字体，可以替换为您喜欢的字体 */
+}
 /* 媒体查询，适用于移动端 */
 @media (max-width: 768px) {
   .flight-info {

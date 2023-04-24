@@ -25,7 +25,7 @@ useEffect(()=>{
   >
     <Descriptions.Item label="用户名">{name}</Descriptions.Item>
     <Descriptions.Item label="昵称">海盐荔枝</Descriptions.Item>
-    <Descriptions.Item label="手机号">{user.phone}}</Descriptions.Item>
+    <Descriptions.Item label="手机号">{user.phone}</Descriptions.Item>
     <Descriptions.Item label="性别">女</Descriptions.Item>
     <Descriptions.Item label="身份证号">{id}</Descriptions.Item>
     <Descriptions.Item label="邮箱">{user.email}</Descriptions.Item>

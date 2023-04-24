@@ -39,7 +39,6 @@ const Index = (props) => {
     const checkFlight = async (item)=>{
         setLoading(true)
         try {
-            setIsModalOpen(true);
             const {data:{flight}} = await getFlight({flightNumber:item.flight_number})
             setTicket(flight)
             setPay(1)
@@ -47,9 +46,9 @@ const Index = (props) => {
             setLoading(false)
         }
     }
+
     const handleCancel = () => {
         setPay(0)
-        setIsModalOpen(false)
     };
     const handelPay=(order)=>{
         setPay(2)
@@ -59,6 +58,9 @@ const Index = (props) => {
         setPay(isPay)
         setOrder(order_id)
     }
+    useEffect(()=>{
+        console.log(pay)
+    },[pay])
 
     if(pay ===0) return(flightList.map((item)=><FlightCard key={item.flight_number} item={item} checkFlight={checkFlight}/>))
     else if(pay===1) return(<Order ticket={ticket} close={handleCancel} ModalOpen={isModalOpen} open={handelPay}></Order>)

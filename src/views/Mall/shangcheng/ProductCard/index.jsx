@@ -1,8 +1,13 @@
 import React from "react";
 import { Card, Image, Tag, Button } from "antd";
 import styles from "./index.css";
+import {useNavigate} from "react-router-dom";
 
 const ProductCard = ({ imageUrl, title, description, price, stock, sold }) => {
+  const navigate = useNavigate()
+  const toPage =()=>{
+    navigate('/home/mall/flight')
+  }
   return (
     <Card
       hoverable
@@ -18,7 +23,7 @@ const ProductCard = ({ imageUrl, title, description, price, stock, sold }) => {
       </div>
       <div className={styles.cardFooter}>
         <p style={{ fontWeight: "bold" }}>{price}</p>
-        <Button type="primary" size="small" className={styles.detailButton}>
+        <Button type="primary" size="small" className={styles.detailButton} onClick={toPage}>
           查看详情
         </Button>
       </div>

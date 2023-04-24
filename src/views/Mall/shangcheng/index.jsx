@@ -7,7 +7,7 @@ import "./index.less";
 const data = [
   {
     imageUrl: "https://pic.c-ctrip.com/flight/fuzzy/CGO/640.jpg",
-    title: "郑州",
+    title: "广州",
     description: "商品1描述",
     price: "￥100.00",
     stock: 10,
@@ -15,7 +15,7 @@ const data = [
   },
   {
     imageUrl: "https://pic.c-ctrip.com/flight/fuzzy/HFE/640.jpg",
-    title: "合肥",
+    title: "成都",
     description: "商品2描述",
     price: "￥200.00",
     stock: 10,
@@ -23,7 +23,7 @@ const data = [
   },
   {
     imageUrl: "https://pic.c-ctrip.com/flight/fuzzy/KHN/640.jpg",
-    title: "南昌",
+    title: "杭州",
     description: "商品2描述",
     price: "￥200.00",
     stock: 10,
@@ -31,7 +31,7 @@ const data = [
   },
   {
     imageUrl: "https://pic.c-ctrip.com/flight/fuzzy/KHN/640.jpg",
-    title: "南昌",
+    title: "北京",
     description: "商品2描述",
     price: "￥200.00",
     stock: 10,

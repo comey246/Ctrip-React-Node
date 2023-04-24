@@ -7,7 +7,7 @@ import request from "umi-request";
 
 import TravelPage from "@/views/Mall/Front/index.jsx";
 import ProductList from "@/views/Mall/shangcheng/index.jsx";
-
+import Order from "@/views/Mall/order";
 import "./index.css";
 
 const { Option } = Select;

@@ -3,7 +3,6 @@ import produce from "immer";
 import {getFlightList} from "@/api/mall.js";
 import {connect} from "react-redux";
 import {setFlightList, setFlightInfo} from "@/redux/mall/action.js"
-import {ProList} from "@ant-design/pro-components";
 import {Button, Space, Tag, Row, Col, Select, Input, DatePicker} from "antd";
 import request from "umi-request";
 import "./index.less";
@@ -89,7 +88,9 @@ const Index = (props) => {
                         />
                     </Col>
                     <Col xs={24} sm={8} md={4} lg={4} xl={4}>
-                        <DatePicker style={{width: "100%"}} onChange={onSelect}/>
+                        <Space>
+                        <DatePicker onChange={onSelect} />
+                        </Space>
                     </Col>
                     <Col xs={24} sm={8} md={2} lg={2} xl={2}>
                         <Button
@@ -103,7 +104,9 @@ const Index = (props) => {
                         </Button>
                     </Col>
                 </Row>
+
             </div>
+
 </Fragment>
     );
 }

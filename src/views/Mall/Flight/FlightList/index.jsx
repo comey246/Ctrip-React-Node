@@ -4,10 +4,14 @@ import {getFlight} from "@/api/mall.js";
 import {bookFlight} from "@/api/mall.js";
 import {Button, Space, Tag, Row, Col, Select, Input, Modal, Spin, message} from "antd";
 import FlightCard from "@/views/Mall/Flight/FlightList/FlightCard/index.jsx";
+import Order from "@/views/Mall/Flight/FlightList/order/index.jsx";
+import Pay from "@/views/Mall/Flight/FlightList/pay/index.jsx";
+import PaymentSuccess from "@/views/Mall/PaymentSuccess/index.jsx";
 import request from "umi-request";
 import "./index.css";
 import {setFlightList} from "@/redux/mall/action.js";
 import {connect} from "react-redux";
+import reduxThunk from "redux-thunk";
 
 
 const flightTicket = {
@@ -28,11 +32,9 @@ const flightTicket = {
 const Index = (props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [ticket,setTicket] = useState(flightTicket)
-    const [phone, setPhone] = useState("");
-    const [name, setName] = useState("");
-    const [idNumber, setIdNumber] = useState("");
-    const [tickets, setTickets] = useState(1);
     const [loading,setLoading] = useState(false)
+    const [pay,setPay] = useState(0)
+    const [order,setOrder] = useState('')
     const{flightList} = props
     const checkFlight = async (item)=>{
         setLoading(true)
@@ -40,96 +42,27 @@ const Index = (props) => {
             setIsModalOpen(true);
             const {data:{flight}} = await getFlight({flightNumber:item.flight_number})
             setTicket(flight)
+            setPay(1)
         }finally {
             setLoading(false)
         }
     }
-    const handleOk = async () => {
-        setLoading(true)
-        const {code,data:{order}} = await bookFlight({phone, idNumber, tickets,...ticket})
-        if(code===200){
-
-        }else{message.error('下单失败')}
-        setIsModalOpen(false)
-        setLoading(false)
-    };
     const handleCancel = () => {
+        setPay(0)
         setIsModalOpen(false)
     };
-    return (
-        <Fragment>
-            {flightList.map((item)=><FlightCard key={item.flight_number} item={item} checkFlight={checkFlight}/>)}
-            {/*<Order ticket={selectedFlight} close={handleClose} ModalOpen={isModalOpen}></Order>*/}
-            <Modal
-                title="预订详情"
-                closable={false}
-                maskStyle={{background: "rgba(255,255,255,0.2)", backdropFilter: "blur(6px)"}}
-                open={isModalOpen}
-                footer={[
-                    <Button key="back" onClick={handleCancel}>
-                        取消
-                    </Button>,
-                    <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
-                        下单
-                    </Button>,
-                ]}
-            >
-                <Spin spinning={loading} tip="Loading...">
-                    <div className="ticket-booking">
-                        <h1>机票预订</h1>
-                        <div className="flight-info">
-                            <h2>航班信息</h2>
-                            <div className="left-info">
-                                <p>航班号：{ticket.flight_number}</p>
-                                <p>起飞时间：{ticket.departure_time}</p>
-                                <p>到达时间：{ticket.arrival_time}</p>
-                            </div>
-                            <div className="right-info">
-                                <p>价格：{ticket.price}</p>
-                                <label htmlFor="tickets">购买数量：</label>
-                                <input
-                                    type="number"
-                                    id="tickets"
-                                    value={tickets}
-                                    onChange={(e) => setTickets(e.target.value)}
-                                    min="1"
-                                />
-                            </div>
-                        </div>
-                        <form className="booking-form">
-                            <label htmlFor="name">姓名：</label>
-                            <input
-                                type="text"
-                                id="name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                required
-                            />
-                            <label htmlFor="phone">手机号码：</label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
-                                required
-                            />
-                            <label htmlFor="idNumber">身份证号：</label>
-                            <input
-                                type="text"
-                                id="idNumber"
-                                value={idNumber}
-                                onChange={(e) => setIdNumber(e.target.value)}
-                                required
-                            />
-                            <div className="total-price-and-submit">
-                                <span className="totalprice">总价：¥{tickets * 1800}</span>
-                            </div>
-                        </form>
-                    </div>
-                </Spin>
-            </Modal>
-        </Fragment>
-    );
+    const handelPay=(order)=>{
+        setPay(2)
+        setOrder(order)
+    }
+    const payResult = (isPay,order_id)=>{
+        setPay(3)
+    }
+
+    if(pay ===0) return(flightList.map((item)=><FlightCard key={item.flight_number} item={item} checkFlight={checkFlight}/>))
+    else if(pay===1) return(<Order ticket={ticket} close={handleCancel} ModalOpen={isModalOpen} open={handelPay}></Order>)
+        else if(pay===2)return(<Pay order={order} payResult={payResult} ></Pay>)
+
 }
 const mapStateToProps = (state) => (state.mall);
 export default connect( mapStateToProps)(Index);

@@ -1,13 +1,13 @@
 // TicketBooking.js
 import React, {useEffect, useState} from "react";
 import {bookFlight} from "@/api/mall.js";
-import "./index.css";
-import {Modal, Spin,Button} from "antd";
+import "./index.less";
+import {Modal, Spin, Button, Descriptions, message} from "antd";
 
 
 const TicketBooking = (props) => {
-    const {ticket,ModalOpen,close} = props
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const {ticket,ModalOpen,close,handlePay} = props
+    const [isModalOpen, setIsModalOpen,] = useState(false);
     const [phone, setPhone] = useState("");
     const [name, setName] = useState("");
     const [idNumber, setIdNumber] = useState("");
@@ -16,9 +16,13 @@ const TicketBooking = (props) => {
 
     const handleOk = async () => {
         setLoading(true)
-        const data = await bookFlight({phone, idNumber, tickets,...ticket})
-        console.log(data)
-        close();
+        const {code,data:{order},message} = await bookFlight({phone, idNumber,name, tickets,...ticket})
+        if(code===200){
+            handlePay(order);
+        } else {
+            close();
+            message.error(message);
+        }
         setIsModalOpen(false)
         setLoading(false)
     };
@@ -28,46 +32,69 @@ const TicketBooking = (props) => {
     };
     return (
         <Modal
-            title="预订详情"
+            width={1000}
+            closable={false}
             maskStyle={{background: "rgba(255,255,255,0.2)", backdropFilter: "blur(6px)"}}
             open={ModalOpen}
             footer={[
-                <Button key="back" onClick={handleCancel}>
+                <Button key="back" onClick={handleCancel} style={{width:50}}>
                     取消
                 </Button>,
-                <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
-                    下单
-                </Button>,
-            ]}
-        >
-            <Spin spinning={loading} tip="Loading...">
-                <div className="ticket-booking">
+                <Button key="submit" type="primary" loading={loading} onClick={handleOk} >
+                    确认下单
+                </Button>  ]}
+
+        ><div className="ticket-booking">
                     <h1>机票预订</h1>
+                    <div className="order-info"><Spin spinning={loading} tip="Loading...">
+                        <Descriptions title="航班信息">
+                            <Descriptions.Item label="航班号">{ticket.flight_number}</Descriptions.Item>
+                            <Descriptions.Item label="航空公司">{ticket.airline}</Descriptions.Item>
+                            <Descriptions.Item label="飞机型号">{ticket.planeModel}</Descriptions.Item>
+                            <Descriptions.Item label="起飞时间">
+                                {ticket.departure_time}
+                            </Descriptions.Item>
+                            <Descriptions.Item label="起飞地点">{ticket.originLabel}</Descriptions.Item>
+                            <Descriptions.Item label="到达时间">
+                                {ticket.arrival_time}
+                            </Descriptions.Item>
+                            <Descriptions.Item label="到达地点">{ticket.destinationLabel}</Descriptions.Item>
+                            <Descriptions.Item label="已售">{Math.floor(Math.random()*10)}</Descriptions.Item>
+                            <Descriptions.Item label="余票">{ticket.seats_available}</Descriptions.Item>
+                        </Descriptions>          </Spin>
+                    </div>
                     <div className="flight-info">
-                        <h2>航班信息</h2>
-                        <div className="left-info">
-                            <p>航班号：{ticket.flight_number}</p>
-                            <p>起飞时间：{ticket.departure_time}</p>
-                            <p>到达时间：{ticket.arrival_time}</p>
-                        </div>
-                        <div className="right-info">
-                            <p>价格：{ticket.price}</p>
-                            <label htmlFor="tickets">购买数量：</label>
+                        <p>价格：{ticket.price}</p>
+                        <div className="ticket-control">
+                            <button
+                                onClick={() => setTickets(tickets - 1)}
+                                disabled={tickets <= 1}
+                            >
+                                -
+                            </button>
                             <input
                                 type="number"
                                 id="tickets"
                                 value={tickets}
                                 onChange={(e) => setTickets(e.target.value)}
                                 min="1"
+                                max="100"
                             />
+                            <button
+                                onClick={() => setTickets(tickets + 1)}
+                                disabled={tickets >= 100}
+                            >
+                                +
+                            </button>
                         </div>
                     </div>
+
                     <form className="booking-form">
                         <label htmlFor="name">姓名：</label>
                         <input
                             type="text"
                             id="name"
-                            value={name}
+                            value={idNumber}
                             onChange={(e) => setName(e.target.value)}
                             required
                         />
@@ -88,11 +115,10 @@ const TicketBooking = (props) => {
                             required
                         />
                         <div className="total-price-and-submit">
-                            <span className="totalprice">总价：¥{tickets * 1800}</span>
+                            <span className="totalprice">总价：¥{tickets * ticket.price}</span>
                         </div>
                     </form>
-                </div>
-            </Spin>
+        </div>
         </Modal>
     );
 };

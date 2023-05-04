@@ -1,0 +1,52 @@
+.payment-failure {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  .failure-icon {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 2rem;
+      margin: 1.5rem;
+    }
+  }
+  .failure-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    .btn {
+      margin-top: 1%;
+      padding: 8px 16px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .btn:active {
+      background-color: #004085;
+    }
+  }
+  .order-info {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}

@@ -1,0 +1,25 @@
+.search-container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.destination,
+.date {
+  margin-bottom: 5px;
+}
+
+.destination {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.date {
+  font-size: 14px;
+  color: #888;
+}
+
+@media screen and (max-width: 767px) {
+  .search-container {
+    flex-direction: column;
+  }
+}

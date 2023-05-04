@@ -1,0 +1,124 @@
+/* TicketBooking.css */
+.ticket-booking {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .order-info {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .flight-info {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    p {
+      color: red;
+      font-size: 1.2rem;
+      font-family: "Georgia", serif;
+    }
+    .ticket-control {
+      display: flex;
+      align-items: center;
+    }
+    .ticket-control input::-webkit-inner-spin-button,
+    .ticket-control input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .ticket-control input {
+      width: 60px;
+      text-align: center;
+      margin: 0 0.5rem;
+    }
+
+    .ticket-control button {
+      background-color: #ccc;
+      border: none;
+      border-radius: 3px;
+      color: #333;
+      font-size: 1rem;
+      padding: 0.25rem 0.4rem;
+      cursor: pointer;
+    }
+
+    .ticket-control button:disabled {
+      background-color: #eee;
+      color: #999;
+      cursor: not-allowed;
+    }
+  }
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    label {
+      font-weight: bold;
+    }
+    input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .total-price-and-submit {
+      display: flex;
+      justify-content: flex-end; /* 调整为靠右对齐 */
+      align-items: center;
+      gap: 1rem; /* 在总价和按钮之间添加间距 */
+      .totalprice {
+        color: red;
+        font-size: 1.2rem; /* 字号增大 */
+        font-family: "Georgia", serif; /* 使用 Georgia 字体，可以替换为您喜欢的字体 */
+      }、
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      button:active {
+        background-color: #004085;
+      }
+
+      button {
+        width: 120px; /* 调整按钮宽度 */
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        background-color: #007bff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+    }
+  }
+}
+
+/* 媒体查询，适用于移动端 */
+@media (max-width: 768px) {
+  .flight-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

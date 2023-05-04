@@ -1,0 +1,148 @@
+/* 添加 Google 字体 */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* 更改背景色和添加渐变效果 */
+.search-container {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 更新按钮样式 */
+/* button {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+} */
+
+.swap-arrow {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+}
+
+/* 添加动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.flight-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 2px solid #91d5ff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in;
+}
+
+.destination,
+.date,
+.plane-model,
+.departure-time,
+.duration,
+.price {
+  margin-bottom: 5px;
+}
+
+.departure-time,
+.arrival-time {
+  font-size: 18px; /* 调整字体大小 */
+  font-weight: 600; /* 调整字体粗细 */
+  color: #2f54eb; /* 调整字体颜色 */
+  text-align: center;
+}
+
+.destination {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+.destination,
+.plane-model,
+.duration {
+  font-size: 16px;
+  color: #555;
+}
+
+.date,
+.seats-available {
+  font-size: 14px;
+  color: #888;
+}
+
+.plane-model {
+  font-size: 16px;
+}
+
+.duration {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.price {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  color: #f56a00; /* 橙色 */
+}
+
+.book-button {
+  text-align: right;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.arrow-icon {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.search-container > * {
+  margin-bottom: 10px;
+}

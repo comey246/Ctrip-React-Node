@@ -1,0 +1,99 @@
+.login-container {
+  height: 100vh;
+  min-height:800px;
+  width: 100vw;
+  min-width:300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./images/login_bg.svg");
+  background-repeat: repeat;
+  background-size: cover;
+  .login-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    width: 96vw;
+    height:80vh;
+    min-height: 800px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
+    .login-left {
+      width: 50%;
+      min-width: 300px;
+      img{
+      width: 100%;
+    }
+    }
+    .login-form {
+      width: 30%;
+      min-width: 300px;
+      max-width: 400px;
+      padding: 20px 20px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        img{
+          width: 200px;
+        }
+      .login-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        img{
+          width: 80%;
+          max-width: 400px;
+        }
+        .tab-text {
+          padding: 8px 20px;
+          margin: 0 5px;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+          color: #888;
+          border-bottom: 2px solid transparent;
+          transition: color 0.3s, border-color 0.3s;
+          &:hover {
+            color: #333;
+          }
+          &.active {
+            color: #333;
+            border-color: #333;
+          }
+        }
+        .dark-text{
+          &:hover {
+            color: #ffffff;
+          }
+          &.active {
+            color: #ffffff;
+            border-color: #ffffff;
+          }
+        }
+        .logo-text {
+          padding-left: 25px;
+          font-size: 24px;
+          font-weight: bold;
+          white-space: nowrap;
+        }
+      }
+      .form{
+        width: 80%;
+        padding: 0 10%;
+      }
+    }
+    .dark {
+      background: rgba(0, 0, 0, 0.37);
+    }
+  }
+  .dark {
+    background: rgba(0, 0, 0, 0.37);
+  }
+}
+.dark{
+  background-image: url("./images/login_bg.svg"),linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+
+}
